@@ -50,6 +50,7 @@ Contributions are welcome. Please read this [Contributing Guide](.github/CONTRIB
 
 ## Credits
 
+- This project is a fork of [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv). Huge thanks to the original author for the amazing work!
 - [billryan/resume](https://github.com/billryan/resume)
 
 

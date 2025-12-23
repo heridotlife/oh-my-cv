@@ -14,6 +14,7 @@ export const DEFAULT_STYLES = {
   fontEN: {
     name: "Minion Pro"
   },
+  fontMachine: {},
   fontSize: 15,
   paper: "A4"
 } as ResumeStyles;
@@ -37,6 +38,7 @@ header:
 
 <!-- Important: When updating your email address, remember to change both the "text" (visible text) and the "link" (underlying hyperlink) fields. -->
 
+<!-- Note: You can drag and drop a local image to insert it. -->
 
 ## Education
 
@@ -132,7 +134,7 @@ export const DEFAULT_CSS_CONTENT = `/* Backbone CSS for Resume Template 1 */
 ${PREVIEW_SELECTOR} [data-scope="vue-smart-pages"][data-part="page"] {
   background-color: white;
   color: black;
-  text-align: justify;
+  text-align: start;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;

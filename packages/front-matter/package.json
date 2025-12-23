@@ -1,6 +1,6 @@
 {
   "name": "@ohmycv/front-matter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A better `js-yaml`, for extracting and parsing YAML front matter from strings.",
   "keywords": [
     "yaml",

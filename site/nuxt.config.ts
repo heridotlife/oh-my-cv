@@ -5,6 +5,8 @@ import { i18n } from "./configs/i18n";
 export default defineNuxtConfig({
   srcDir: "src/",
 
+  devtools: { enabled: false },
+
   modules: [
     "@vueuse/nuxt",
     "@unocss/nuxt",
@@ -62,5 +64,12 @@ export default defineNuxtConfig({
     url: "https://ohmycv.app"
   },
 
-  pwa
+  pwa,
+  compatibilityDate: "2025-12-23",
+
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 4096
+    }
+  }
 });

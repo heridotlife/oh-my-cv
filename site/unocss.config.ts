@@ -58,11 +58,11 @@ export default defineConfig({
         display: "inline-block"
       }
     }),
-    presetWebFonts({
-      fonts: {
-        ui: "Lato:400,700"
-      }
-    }),
+    // presetWebFonts({
+    //   fonts: {
+    //     ui: "Lato:400,700"
+    //   }
+    // }),
     presetAnimations(),
     presetShadcn(
       {

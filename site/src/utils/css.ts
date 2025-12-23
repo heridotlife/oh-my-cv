@@ -11,7 +11,7 @@ const { RENDER } = useConstant();
  * handled by the `vue-smart-pages` package.
  */
 export class DynamicCssService {
-  constructor() {}
+  constructor() { }
 
   private _selector = (id?: string | number) => {
     return `#resume-${id ?? RENDER.PREVIEW_ID}`;
@@ -46,7 +46,8 @@ export class DynamicCssService {
   private fontFamily = (selector: string, styles: ResumeStyles) => {
     const fontEN = styles.fontEN.fontFamily || styles.fontEN.name;
     const fontCJK = styles.fontCJK.fontFamily || styles.fontCJK.name;
-    return `${selector} { font-family: ${fontEN}, ${fontCJK}, Arial, Helvetica, sans-serif; }`;
+    const fontMachine = styles.fontMachine.fontFamily || fontEN;
+    return `${selector} { font-family: ${fontMachine}, ${fontEN}, ${fontCJK}, Arial, Helvetica, sans-serif; font-variant-ligatures: none; }`;
   };
 
   private fontSize = (selector: string, styles: ResumeStyles) => {

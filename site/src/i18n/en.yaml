@@ -15,7 +15,7 @@ landing:
   start: Create My Resume
   feats:
     - title: Simple and Powerful
-      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF<br>Fully customizable<br>Choose fonts and add icons<br>And <a href="https://github.com/Renovamen/oh-my-cv#features" target="_blank">more features</a>
+      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF<br>Fully customizable<br>Choose fonts and add icons<br>And <a href="https://github.com/heridotlife/oh-my-cv#features" target="_blank">more features</a>
     - title: Privacy First
       items: Open source and free<br>All data is saved locally<br>No login or registration needed<br>No user tracking<br>No ads
 
@@ -29,6 +29,12 @@ dashboard:
   rename: Rename
   duplicate: Duplicate
   delete: Delete
+  delete_confirm:
+    title: Delete Resume
+    message: Are you sure you want to delete "{name}"? This action cannot be undone.
+    placeholder: Type 'delete' to confirm
+    button: Delete Resume
+  cancel: Cancel
 
 toolbar:
   file:
@@ -56,13 +62,14 @@ toolbar:
     note:
       title: Note
       content: Words that are only in uppercase or lowercase ("GITHUB" or "github") will be left untouched.
-    btn : Correct it!
+    btn: Correct it!
   paper_size: Paper Size
   theme_color: Theme Color
   font_family:
     title: Font Family
     cjk: CJK
     en: English
+    machine: Machine
   font_size: Font Size
   margins:
     title: Margins
@@ -79,7 +86,7 @@ notification:
   duplicate: Created resume "{old}"'s duplication "{new}"
   correct:
     yes: Corrected {num} words
-    no : All case are correct!
+    no: All case are correct!
   import:
     yes: Data has been successfully imported!
-    no : Data format is invalid.
+    no: Data format is invalid.

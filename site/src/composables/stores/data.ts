@@ -6,6 +6,9 @@ export type SystemData = {
   loaded: boolean;
 };
 
+import { useMonaco } from "../monaco";
+import { useConstant } from "../constant";
+
 export const useDataStore = defineStore("data", () => {
   const { DEFAULT } = useConstant();
 
