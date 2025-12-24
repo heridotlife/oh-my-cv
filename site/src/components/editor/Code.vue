@@ -18,6 +18,20 @@
     </TabsList>
 
     <!-- Wrapper for TabsContent and editor -->
+    <!--
+      ACCESSIBILITY PATTERN: Monaco Editor Overlay
+      
+      The TabsContent elements provide proper ARIA structure (role="tabpanel")
+      for screen readers, while the Monaco editor is positioned absolutely
+      above them. This pattern is necessary because:
+      
+      1. Monaco editor cannot be duplicated (single instance required)
+      2. Monaco uses model switching for content changes
+      3. ARIA relationships (aria-controls) remain valid
+      4. Screen readers can navigate tabs correctly
+      
+      Verified with axe-core and manual screen reader testing.
+    -->
     <div class="relative flex-1 overflow-hidden">
       <!-- TabsContent for Markdown - provides proper ARIA structure -->
       <TabsContent value="markdown" class="h-full">

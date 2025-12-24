@@ -105,24 +105,30 @@ onMounted(async () => {
 
   if ("queryLocalFonts" in window) {
     // @ts-expect-error: Chrome 103 Experimental
-    window.queryLocalFonts().then((fonts) => {
-      const uniqFamily: Record<string, boolean> = {};
+    window
+      .queryLocalFonts()
+      .then((fonts) => {
+        const uniqFamily: Record<string, boolean> = {};
 
-      for (const font of fonts) {
-        if (uniqFamily[font.family]) {
-          continue;
-        } else {
-          uniqFamily[font.family] = true;
+        for (const font of fonts) {
+          if (uniqFamily[font.family]) {
+            continue;
+          } else {
+            uniqFamily[font.family] = true;
+          }
+
+          machineFonts.value.push({
+            label: font.fullName,
+            value: font.family,
+            onSelect: () =>
+              setStyle("fontMachine", { name: font.fullName, fontFamily: font.family })
+          });
         }
-
-        machineFonts.value.push({
-          label: font.fullName,
-          value: font.family,
-          onSelect: () =>
-            setStyle("fontMachine", { name: font.fullName, fontFamily: font.family })
-        });
-      }
-    });
+      })
+      .catch((error) => {
+        console.warn("Failed to query local fonts:", error);
+        // Gracefully degrade - local fonts won't be available
+      });
   }
 
   loaded.value = true;

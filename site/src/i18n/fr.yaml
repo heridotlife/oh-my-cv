@@ -1,6 +1,6 @@
 lang: Langage
 
-toggle_theme: Changer de theme
+toggle_theme: Changer de thème
 open_toolbar: Ouvrir la barre d'outils
 close_toolbar: Fermer la barre d'outils
 
@@ -10,7 +10,7 @@ head:
   keywords: éditeur de CV, créateur de CV, éditeur de curriculum vitae, CV en Markdown
 landing:
   hero: Écrivez des <span text-primary>CV</span> en Markdown!
-  desc: C'est un outil gratuit et open-source vous permettant de créer et gérer vos CVs, sans toucher à vos données personelles.
+  desc: C'est un outil gratuit et open-source vous permettant de créer et gérer vos CVs, sans toucher à vos données personnelles.
   start: Créer mon CV
   feats:
     - title: Simple et Puissant
@@ -28,6 +28,12 @@ dashboard:
   rename: Renommer
   duplicate: Dupliquer
   delete: Supprimer
+  delete_confirm:
+    title: Supprimer le CV
+    message: Êtes-vous sûr de vouloir supprimer "{name}" ? Cette action ne peut pas être annulée.
+    placeholder: Tapez 'delete' pour confirmer
+    button: Supprimer le CV
+  cancel: Annuler
 
 toolbar:
   file:
@@ -44,7 +50,7 @@ toolbar:
       title: Exportation PDF
       alert:
         title: Prudence!
-        content: Lorsque vous imprimer sous Windows, selectionnez bien "Enregistrer vers PDFF" dans les réglages de la fenêtre d'impression, <b>ne pas choisir</b> "Microsoft Print to PDF".
+        content: Lorsque vous imprimer sous Windows, selectionnez bien "Enregistrer vers PDF" dans les réglages de la fenêtre d'impression, <b>ne pas choisir</b> "Microsoft Print to PDF".
     export_md: Exportation Markdown
   correct_case:
     title: Corriger la casse
@@ -62,6 +68,7 @@ toolbar:
     title: Famille de police
     cjk: CJK
     en: Anglais
+    machine: Machine
   font_size: Taille de la police
   margins:
     title: Marges
@@ -78,7 +85,7 @@ notification:
   duplicate: Copie "{new}" du CV "{old}"
   correct:
     yes: "{num} mots corrigés"
-    no: Aucune correction nécéssaire!
+    no: Aucune correction nécessaire!
   import:
-    yes: Les données ont bine été importées!
+    yes: Les données ont bien été importées!
     no: Format des données incorrect.

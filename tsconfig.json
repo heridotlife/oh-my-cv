@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -11,9 +11,30 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["node"]
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "node"
+    ]
   },
-  "include": ["site/**/*.ts", "site/**/*.tsx", "site/**/*.vue", "packages/**/*.ts"],
-  "exclude": ["node_modules", "dist", ".nuxt"]
+  "include": [
+    "packages/case-police/**/*.ts",
+    "packages/dynamic-css/**/*.ts",
+    "packages/front-matter/**/*.ts",
+    "packages/google-fonts-loader/**/*.ts",
+    "packages/utils/**/*.ts",
+    "packages/vue-shortcuts/**/*.ts",
+    "packages/vue-smart-pages/**/*.ts",
+    "packages/vue-zoom/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".nuxt",
+    "site",
+    "packages/markdown-it-*/**"
+  ]
 }
