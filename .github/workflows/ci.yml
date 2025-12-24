@@ -53,6 +53,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        run: pnpm build:pkg
+
       - name: Run type check
         run: pnpm type-check
 
@@ -76,13 +79,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        run: pnpm build:pkg
+
       - name: Build site
         run: pnpm build
         env:
           NUXT_PUBLIC_GOOGLE_FONTS_KEY: ${{ secrets.GOOGLE_FONTS_KEY }}
 
       - name: Install axe-cli
-        run: pnpm add -D @axe-core/cli
+        run: pnpm add -D -w @axe-core/cli
 
       - name: Start preview server
         run: pnpm serve &

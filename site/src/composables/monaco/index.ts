@@ -1,4 +1,4 @@
-import { isClient } from "@renovamen/utils";
+import { isClient } from "@heridotlife/utils";
 import type * as Monaco from "monaco-editor";
 import {
   setupMonacoModel,

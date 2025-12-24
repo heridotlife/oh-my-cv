@@ -79,7 +79,7 @@ importers:
 
   packages/markdown-it-katex:
     dependencies:
-      "@renovamen/utils":
+      "@heridotlife/utils":
         specifier: workspace:*
         version: link:../utils
       katex:
@@ -109,7 +109,7 @@ importers:
 
   packages/vue-shortcuts:
     dependencies:
-      "@renovamen/utils":
+      "@heridotlife/utils":
         specifier: workspace:*
         version: link:../utils
       "@vueuse/core":
@@ -139,6 +139,9 @@ importers:
 
   site:
     devDependencies:
+      "@heridotlife/utils":
+        specifier: workspace:*
+        version: link:../packages/utils
       "@iconify/json":
         specifier: ^2.2.225
         version: 2.2.421
@@ -184,9 +187,6 @@ importers:
       "@pinia/nuxt":
         specifier: ^0.5.1
         version: 0.5.5(magicast@0.5.1)(typescript@5.9.3)(vue@3.5.26(typescript@5.9.3))
-      "@renovamen/utils":
-        specifier: workspace:*
-        version: link:../packages/utils
       "@types/markdown-it-link-attributes":
         specifier: ^3.0.5
         version: 3.0.5

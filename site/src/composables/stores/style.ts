@@ -1,4 +1,4 @@
-import { copy } from "@renovamen/utils";
+import { copy } from "@heridotlife/utils";
 import type { ValidPaperSize, Font } from "~/composables/constant";
 import { useConstant } from "../constant";
 
