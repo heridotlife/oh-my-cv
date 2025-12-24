@@ -6,7 +6,7 @@ export const DEFAULT_STYLES = {
   marginH: 45,
   lineHeight: 1.3,
   paragraphSpace: 5,
-  themeColor: "#377bb5",
+  themeColor: "#4ba3f5",
   fontCJK: {
     name: "华康宋体",
     fontFamily: "HKST"
@@ -14,6 +14,7 @@ export const DEFAULT_STYLES = {
   fontEN: {
     name: "Minion Pro"
   },
+  fontMachine: {},
   fontSize: 15,
   paper: "A4"
 } as ResumeStyles;
@@ -37,6 +38,7 @@ header:
 
 <!-- Important: When updating your email address, remember to change both the "text" (visible text) and the "link" (underlying hyperlink) fields. -->
 
+<!-- Note: You can drag and drop a local image to insert it. -->
 
 ## Education
 
@@ -132,7 +134,7 @@ export const DEFAULT_CSS_CONTENT = `/* Backbone CSS for Resume Template 1 */
 ${PREVIEW_SELECTOR} [data-scope="vue-smart-pages"][data-part="page"] {
   background-color: white;
   color: black;
-  text-align: justify;
+  text-align: start;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
@@ -244,6 +246,17 @@ ${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="definition"]::marker {
 ${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="reference"] {
   font-size: 100%;
   top: 0;
+}
+
+${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="link"] {
+  text-decoration: underline !important;
+  color: inherit;
+}
+
+/* Links - General Accessibility */
+
+${PREVIEW_SELECTOR} a {
+  text-decoration: underline !important;
 }
 
 /* Dark & print mode */

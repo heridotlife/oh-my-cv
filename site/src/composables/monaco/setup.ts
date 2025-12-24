@@ -61,11 +61,8 @@ export const setupMonacoModel = async (
 ): Promise<MonacoModel> => {
   const { monaco } = await setupMonaco();
 
-  const disposables: Monaco.IDisposable[] = [];
   const model = monaco.editor.createModel(content, language);
-
-  disposables.push(model);
-  disposables.push(model.onDidChangeContent(onChange));
+  const disposables: Monaco.IDisposable[] = [model, model.onDidChangeContent(onChange)];
 
   return {
     get: () => model,
@@ -92,10 +89,23 @@ export const setupMonacoTheme = async (monaco: typeof Monaco) => {
   monaco.editor.defineTheme("vs-dark-dimmed", {
     base: "vs-dark",
     inherit: true,
-    rules: [],
+    rules: [
+      { token: "comment", foreground: "9CA3AF", fontStyle: "italic" },
+      { token: "keyword", foreground: "60A5FA" },
+      { token: "string", foreground: "A7F3D0" },
+      { token: "number", foreground: "FCD34D" },
+      { token: "regexp", foreground: "F472B6" },
+      { token: "type", foreground: "5EEAD4" },
+      { token: "variable", foreground: "E5E7EB" },
+      { token: "constant", foreground: "FBBF24" },
+      { token: "function", foreground: "C084FC" },
+      { token: "", foreground: "E5E7EB" }
+    ],
     colors: {
       "editor.background": "#22262B",
       "editor.lineHighlightBorder": "#4b5563",
+      "editorLineNumber.foreground": "#9CA3AF",
+      "editorLineNumber.activeForeground": "#E5E7EB",
       "dropdown.background": "#4b5563",
       "menu.separatorBackground": "#6b7280"
     }
@@ -110,4 +120,61 @@ export const setupMonacoTheme = async (monaco: typeof Monaco) => {
 
   setTheme(colorMode.value);
   watch(() => colorMode.value, setTheme);
+};
+
+export const setupMonacoFileDrop = async (
+  container: HTMLElement,
+  editor: Monaco.editor.IStandaloneCodeEditor
+) => {
+  const { monaco } = await setupMonaco();
+  const fileUris: string[] = [];
+
+  return (
+    model: MonacoModel,
+    transformIntoMd: (fileName: string, uri: string) => string
+  ) => {
+    const modelId = model.get().id;
+
+    let disposed = false;
+    model.get().onWillDispose(() => {
+      disposed = true;
+    });
+
+    function displayLocalImage(evt: DragEvent) {
+      if (disposed) return;
+      if (editor?.getModel()?.id !== modelId) return;
+
+      evt.stopPropagation();
+      evt.preventDefault();
+
+      const file = evt.dataTransfer?.files?.[0];
+      if (!file?.type.match("image.*")) {
+        return;
+      }
+
+      const uri = window.URL.createObjectURL(file);
+      fileUris.push(uri);
+      const insertText = transformIntoMd(file.name, uri);
+      const curSelection = editor.getSelection();
+
+      if (!curSelection) return;
+      const { startLineNumber, startColumn, endLineNumber, endColumn } = curSelection;
+      editor.executeEdits("move cursor after inserted local image", [
+        {
+          range: new monaco.Range(startLineNumber, startColumn, endLineNumber, endColumn),
+          text: insertText,
+          forceMoveMarkers: true
+        }
+      ]);
+    }
+
+    const dispose = () => {
+      disposed = true;
+      fileUris.forEach((uri) => window.URL.revokeObjectURL(uri));
+      container?.removeEventListener("drop", displayLocalImage);
+    };
+    container.addEventListener("drop", displayLocalImage, false);
+
+    return dispose;
+  };
 };

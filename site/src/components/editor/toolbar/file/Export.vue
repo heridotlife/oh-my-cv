@@ -20,6 +20,7 @@
               (<SharedIssueLink issue="13" />, <SharedIssueLink issue="16" />)
             </span>
           </UiAlertTitle>
+          <!-- eslint-disable-next-line vue/no-v-text-v-html-on-component -->
           <UiAlertDescription v-html="$t('toolbar.file.export_pdf.alert.content')" />
         </UiAlert>
       </UiTooltipContent>
@@ -38,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { downloadFile } from "@renovamen/utils";
+import { downloadFile } from "@heridotlife/utils";
 
 const { data } = useDataStore();
 const saveName = computed(() => data.resumeName.trim().replace(/\s+/g, "_"));

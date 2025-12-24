@@ -16,6 +16,7 @@ const props = defineProps<DialogContentProps & { class?: HTMLAttributes["class"]
 const emits = defineEmits<DialogContentEmits>();
 
 const delegatedProps = computed(() => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { class: _, ...delegated } = props;
 
   return delegated;

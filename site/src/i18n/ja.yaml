@@ -1,0 +1,92 @@
+lang: 言語
+
+toggle_theme: テーマを切り替え
+open_toolbar: ツールバーを開く
+close_toolbar: ツールバーを閉じる
+
+head:
+  title: Oh My CV! - 無料のオンライン履歴書作成ツール
+  desc: 無料のオンライン履歴書メーカー。Markdownを使って数分で履歴書を作成できます！
+  keywords: 履歴書作成, CV作成, 職務経歴書作成, Markdown履歴書
+
+landing:
+  hero: "Markdownで<span text-blue-700 dark:text-blue-300>履歴書</span>を書こう！"
+  desc: これは、データをプライベートに保ちながら、履歴書を簡単に作成・管理できる無料のオープンソースツールです。
+  start: 履歴書を作成する
+  feats:
+    - title: シンプルで強力
+      items: "複数の履歴書を管理<br>リアルタイムプレビュー<br>PDFへのエクスポート<br>完全なカスタマイズ<br>フォントの選択とアイコンの追加<br>そして<a href='https://github.com/heridotlife/oh-my-cv#features' target='_blank'>その他の機能</a>"
+    - title: プライバシー優先
+      items: "オープンソースで無料<br>すべてのデータはローカルに保存されます<br>ログインや登録は不要<br>ユーザートラッキングなし<br>広告なし"
+
+dashboard:
+  my_resumes: 私の履歴書
+  created: "作成日: "
+  updated: "更新日: "
+  new: 新規
+  saveas: 名前を付けて保存...
+  import: インポート...
+  rename: 名前を変更
+  duplicate: 複製
+  delete: 削除
+  delete_confirm:
+    title: 履歴書を削除
+    message: "本当に '{name}' を削除しますか？この操作は取り消せません。"
+    placeholder: 確認のため 'delete' と入力してください
+    button: 履歴書を削除
+  cancel: キャンセル
+
+toolbar:
+  file:
+    title: ファイル
+    save: 保存
+    rename: 名前を変更
+    import:
+      trigger: Markdownをインポート
+      dialog:
+        header: Markdownファイルをインポート
+        from_local: ファイルをここにドラッグするか、クリックしてファイルを選択
+        from_url: ファイルのURLを貼り付け
+    export_pdf:
+      title: PDFをエクスポート
+      alert:
+        title: 注意！
+        content: "Windowsで印刷する場合、印刷設定ポップアップで 'Microsoft Print to PDF' ではなく、<b>'Save as PDF' (PDFとして保存)</b> を選択してください。"
+    export_md: Markdownをエクスポート
+  correct_case:
+    title: 大文字・小文字の修正
+    example:
+      title: 例
+      content: |
+        "Github" → "GitHub"
+    note:
+      title: 注意
+      content: すべて大文字またはすべて小文字の単語 ("GITHUB" や "github") は変更されません。
+    btn: 修正する！
+  paper_size: 用紙サイズ
+  theme_color: テーマカラー
+  font_family:
+    title: フォントファミリー
+    cjk: CJK（日中韓）
+    en: 英語
+    machine: マシン
+  font_size: フォントサイズ
+  margins:
+    title: 余白
+    vertical: 上下
+    horizontal: 左右
+  paragraph_spacing: 段落の間隔
+  line_height: 行間
+
+notification:
+  save: 変更が保存されました
+  switch: 履歴書 "{msg}" に切り替えました
+  delete: 履歴書 "{msg}" を削除しました
+  new: 新しい履歴書を作成しました
+  duplicate: 履歴書 "{old}" の複製 "{new}" を作成しました
+  correct:
+    yes: "{num} 語を修正しました"
+    no: すべての大文字・小文字は正しいです！
+  import:
+    yes: データが正常にインポートされました！
+    no: データの形式が無効です。

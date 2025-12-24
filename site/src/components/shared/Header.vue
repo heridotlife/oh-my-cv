@@ -55,9 +55,10 @@
         as="a"
         variant="ghost-secondary"
         size="round"
-        href="http://github.com/Renovamen/oh-my-cv"
+        href="https://github.com/heridotlife/oh-my-cv"
         target="_blank"
         rel="nofollow noopener"
+        aria-label="GitHub"
       >
         <span i-tabler:brand-github text-lg />
       </UiButton>

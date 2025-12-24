@@ -1,14 +1,14 @@
 {
-  "name": "@renovamen/utils",
-  "version": "0.1.1",
+  "name": "@heridotlife/utils",
+  "version": "0.1.2",
   "description": "Useful utils, zero dependencies.",
-  "homepage": "https://github.com/Renovamen/oh-my-cv/tree/main/packages/utils",
+  "homepage": "https://github.com/heridotlife/oh-my-cv/tree/main/packages/utils",
   "bugs": {
-    "url": "https://github.com/Renovamen/oh-my-cv"
+    "url": "https://github.com/heridotlife/oh-my-cv"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Renovamen/oh-my-cv.git",
+    "url": "git+https://github.com/heridotlife/oh-my-cv.git",
     "directory": "packages/utils"
   },
   "license": "MIT",

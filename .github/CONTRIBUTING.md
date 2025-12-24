@@ -4,7 +4,6 @@
 
 Thanks for your interest in contributing to this project. Before getting started, you might find this guideline useful.
 
-
 &nbsp;
 
 ## Project Structure
@@ -13,7 +12,6 @@ This is a monorepo based on a [pnpm workspace](https://pnpm.io/workspaces):
 
 - `packages`: Contains useful functions needed by this app
 - `site`: The main site
-
 
 &nbsp;
 
@@ -47,7 +45,6 @@ Finally, you can start developing or building the site:
 pnpm dev
 pnpm build
 ```
-
 
 &nbsp;
 

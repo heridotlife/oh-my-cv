@@ -1,5 +1,10 @@
-import { copy } from "@renovamen/utils";
+import { copy } from "@heridotlife/utils";
 import type { ValidPaperSize, Font } from "~/composables/constant";
+import { useConstant } from "../constant";
+
+export type DynamicFont = Font & {
+  readonly faces?: FontFace[];
+};
 
 export type ResumeStyles = {
   marginV: number;
@@ -7,8 +12,9 @@ export type ResumeStyles = {
   lineHeight: number;
   paragraphSpace: number;
   themeColor: string;
-  fontCJK: Font;
-  fontEN: Font;
+  fontCJK: DynamicFont;
+  fontEN: DynamicFont;
+  fontMachine: DynamicFont;
   fontSize: number;
   paper: ValidPaperSize;
 };
@@ -21,7 +27,7 @@ export const useStyleStore = defineStore("style", () => {
     key: T,
     value: ResumeStyles[T]
   ) => {
-    // handle Google fonts
+    // handle fonts
     if (["fontCJK", "fontEN"].includes(key)) {
       await googleFontsService.resolve(value as Font);
     }

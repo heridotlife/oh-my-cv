@@ -1,6 +1,6 @@
 {
   "name": "@ohmycv/markdown-it-latex-cmds",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Enable using LaTeX like commands in markdown-it",
   "keywords": [
     "markdown",
