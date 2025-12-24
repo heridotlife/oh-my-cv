@@ -1,11 +1,18 @@
 import { isClient } from "@renovamen/utils";
 import type * as Monaco from "monaco-editor";
-import { setupMonacoModel, setupMonacoEditor, type MonacoModel } from "./setup";
+import {
+  setupMonacoModel,
+  setupMonacoEditor,
+  setupMonacoFileDrop,
+  type MonacoModel
+} from "./setup";
+import { useDataStore } from "../stores/data";
 
 type MonacoStates = {
   editor: Monaco.editor.IStandaloneCodeEditor;
   markdown: MonacoModel;
   css: MonacoModel;
+  disposables: (() => void)[];
 };
 
 const useMonacoState = () =>
@@ -33,8 +40,17 @@ export const useMonaco = () => {
       const css = await setupMonacoModel("css", data.css, () =>
         setData("css", css.get().getValue())
       );
+      const setupModelDrop = await setupMonacoFileDrop(container, editor);
 
-      states.value = { editor, markdown, css };
+      states.value = {
+        editor,
+        markdown,
+        css,
+        disposables: [
+          setupModelDrop(markdown, (name, uri) => `![${name}](${uri})`),
+          setupModelDrop(css, (name, uri) => `url(${uri})`)
+        ]
+      };
     } catch (error) {
       // TODO: use toast to show error
       console.error("Failed to initialize the editor: ", error);
@@ -47,6 +63,7 @@ export const useMonaco = () => {
     states.value?.editor.dispose();
     states.value?.markdown.dispose();
     states.value?.css.dispose();
+    states.value?.disposables.forEach((dispose) => dispose());
 
     states.value = undefined;
     loading.value = false;

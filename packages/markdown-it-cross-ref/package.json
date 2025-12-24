@@ -1,6 +1,6 @@
 {
   "name": "@ohmycv/markdown-it-cross-ref",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Enable cross-references in markdown-it.",
   "keywords": [
     "markdown",

@@ -15,7 +15,7 @@ landing:
   start: 开始制作简历
   feats:
     - title: 简单且强大
-      items: 创建并管理多份简历<br>实时预览<br>导出为 PDF 格式<br>可定制程度高<br>轻松切换字体和添加图标<br>以及<a href="https://github.com/Renovamen/oh-my-cv#features" target="_blank">更多特性</a>
+      items: 创建并管理多份简历<br>实时预览<br>导出为 PDF 格式<br>可定制程度高<br>轻松切换字体和添加图标<br>以及<a href="https://github.com/heridotlife/oh-my-cv#features" target="_blank">更多特性</a>
     - title: 隐私优先
       items: 开源免费<br>数据保存在本地<br>无需登录或注册<br>没有用户追踪<br>没有广告
 
@@ -29,6 +29,12 @@ dashboard:
   duplicate: 创建副本
   rename: 重命名
   delete: 删除
+  delete_confirm:
+    title: 删除简历
+    message: 确定要删除 "{name}" 吗？此操作无法撤销。
+    placeholder: 输入 'delete' 以确认
+    button: 删除简历
+  cancel: 取消
 
 toolbar:
   file:
@@ -56,13 +62,14 @@ toolbar:
     note:
       title: 解释
       content: 不会修正全为大写或小写字母的单词（如“GITHUB”或“github”）。
-    btn : 修正
+    btn: 修正
   paper_size: 纸张尺寸
   theme_color: 主题色
   font_family:
     title: 字体
     cjk: 中日韩
     en: 英文
+    machine: 本机
   font_size: 字号
   margins:
     title: 页边距
@@ -79,7 +86,7 @@ notification:
   duplicate: 已创建简历 "{old}" 的副本 "{new}"
   correct:
     yes: 成功修正 {num} 个单词
-    no : 您的所有拼写都是正确的！
+    no: 您的所有拼写都是正确的！
   import:
     yes: 已成功导入数据！
-    no : 数据格式不正确
+    no: 数据格式不正确

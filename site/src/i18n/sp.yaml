@@ -15,7 +15,7 @@ landing:
   start: Crear My Resumen
   feats:
     - title: Simple y poderoso
-      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/Renovamen/oh-my-cv#features" target="_blank">más funciones</a>
+      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/heridotlife/oh-my-cv#features" target="_blank">más funciones</a>
     - title: Primero tu privacidad
       items: Open source, libre y gratuito<br>Información guardada en tu equipo<br>No necesita que te registres<br>No realizamos ningún trackeo ni mostramos publicidad<br>No ads
 
@@ -29,6 +29,12 @@ dashboard:
   rename: Renombrar
   duplicate: Duplicar
   delete: Eliminar
+  delete_confirm:
+    title: Eliminar CV
+    message: ¿Estás seguro de que quieres eliminar "{name}"? Esta acción no se puede deshacer.
+    placeholder: Escribe 'delete' para confirmar
+    button: Eliminar CV
+  cancel: Cancelar
 
 toolbar:
   file:
@@ -56,13 +62,14 @@ toolbar:
     note:
       title: Nota
       content: No se modificarán las palabras que sólo contengan mayúsculas o minúsculas ("GITHUB" or "github").
-    btn : Corrígelo!
+    btn: Corrígelo!
   paper_size: Tamaño de hoja
   theme_color: Color y tema
   font_family:
     title: Fuente
     cjk: CJK
     en: Inglés
+    machine: Nativo
   font_size: Tamaño de Fuente
   margins:
     title: Margenes
@@ -79,7 +86,7 @@ notification:
   duplicate: Created resume "{old}"'s duplication "{new}"
   correct:
     yes: Corregidos {num} palabras
-    no : Buen trabajo, no hubo nada que corregir!
+    no: Buen trabajo, no hubo nada que corregir!
   import:
     yes: Datos importados correctamente!
-    no : Formato de datos inválido.
+    no: Formato de datos inválido.

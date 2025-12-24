@@ -1,11 +1,13 @@
 <template>
   <EditorToolbarBox :text="$t('toolbar.paper_size')" icon="i-majesticons:paper-fold-line">
-    <SharedUiCombobox
-      id="paper-size"
-      class="capitalize"
-      :items="items"
-      :default-value="styles.paper"
-    />
+    <ClientOnly>
+      <SharedUiCombobox
+        id="paper-size"
+        class="capitalize"
+        :items="items"
+        :default-value="styles.paper"
+      />
+    </ClientOnly>
   </EditorToolbarBox>
 </template>
 

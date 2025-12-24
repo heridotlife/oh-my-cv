@@ -33,6 +33,10 @@
         <SplitterResizeHandle
           id="code-preview-handle"
           class="w-3 relative after:(content-[''] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto)"
+          aria-label="Resize"
+          aria-valuenow="50"
+          aria-valuemin="10"
+          aria-valuemax="90"
         />
 
         <SplitterPanel id="preview-pane">

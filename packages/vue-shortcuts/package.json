@@ -1,6 +1,6 @@
 {
   "name": "@ohmycv/vue-shortcuts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Use keyboard shortcuts in Vue.",
   "homepage": "https://github.com/Renovamen/oh-my-cv/tree/main/packages/vue-shortcuts",
   "bugs": {

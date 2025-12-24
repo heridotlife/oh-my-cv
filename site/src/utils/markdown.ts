@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import MarkdownIt from "markdown-it";
 import type {
   PluginSimple,

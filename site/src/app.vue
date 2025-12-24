@@ -1,7 +1,9 @@
 <template>
   <div class="font-ui">
     <VitePwaManifest />
-    <NuxtPage />
+    <main id="main-content">
+      <NuxtPage />
+    </main>
     <UiToaster close-button />
   </div>
 </template>
@@ -13,6 +15,9 @@ const colorMode = useColorMode();
 const preferredDark = usePreferredDark();
 
 useHead({
+  htmlAttrs: {
+    lang: locale
+  },
   title: t("head.title"),
   meta: [
     { name: "keywords", content: t("head.keywords") },

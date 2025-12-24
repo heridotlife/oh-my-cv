@@ -1,0 +1,46 @@
+version: 2
+
+updates:
+  # Enable version updates for pnpm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "heridotlife"
+    labels:
+      - "dependencies"
+      - "chore"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      # Group all patch updates together
+      patch-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+      # Group all minor updates together
+      minor-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+
+  # GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "02:00"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "chore"
+      include: "scope"

@@ -5,10 +5,12 @@
       class="pane-container overflow-y-scroll hide-scrollbar bg-background"
       lt-lg="bg-accent rounded-none"
     >
-      <template v-for="(tool, i) in tools" :key="tool.id">
-        <component :is="tool.component" :id="`toolbar-${tool.id}`" />
-        <UiSeparator v-if="i < tools.length - 1" class="w-[calc(100%-32px)] mx-auto" />
-      </template>
+      <ClientOnly>
+        <template v-for="(tool, i) in tools" :key="tool.id">
+          <component :is="tool.component" :id="`toolbar-${tool.id}`" />
+          <UiSeparator v-if="i < tools.length - 1" class="w-[calc(100%-32px)] mx-auto" />
+        </template>
+      </ClientOnly>
     </div>
 
     <div flex="center col none gap-1" border="l dashed lg:none" w-10 bg-accent>
