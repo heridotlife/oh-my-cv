@@ -47,6 +47,11 @@ const save = async () => {
 // Use the shortcut to save the current resume
 useShortcuts("ctrl+s", save);
 
+// Watch for changes to data and styles to reset saved state
+watch([() => data.markdown, () => data.css, () => styles], () => {
+  saved.value = false;
+});
+
 watchEffect((onCleanup) => {
   if (!data.resumeId) return;
 

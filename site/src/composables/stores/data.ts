@@ -1,3 +1,6 @@
+import { useMonaco } from "../monaco";
+import { useConstant } from "../constant";
+
 export type SystemData = {
   markdown: string;
   css: string;
@@ -5,9 +8,6 @@ export type SystemData = {
   resumeName: string;
   loaded: boolean;
 };
-
-import { useMonaco } from "../monaco";
-import { useConstant } from "../constant";
 
 export const useDataStore = defineStore("data", () => {
   const { DEFAULT } = useConstant();
