@@ -20,8 +20,10 @@
   "devDependencies": {
     "@renovamen/eslint-config": "^0.1.9",
     "@renovamen/prettier-config": "^0.1.9",
+    "axe-core": "^4.11.0",
     "bumpp": "^9.11.1",
     "eslint": "^9.39.2",
+    "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "pnpm": "^9.15.9",
     "prettier": "^3.7.4",
     "taze": "^0.14.3",
@@ -29,6 +31,10 @@
     "typescript": "^5.9.3"
   },
   "pnpm": {
+    "overrides": {
+      "vite": "^5.3.3",
+      "nuxt": "3.12.3"
+    },
     "peerDependencyRules": {
       "allowedVersions": {
         "eslint": "9"

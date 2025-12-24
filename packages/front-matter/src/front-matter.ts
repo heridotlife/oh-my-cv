@@ -1,5 +1,6 @@
 // Adapted from and improved upon https://github.com/jxson/front-matter
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yamlParser from "js-yaml";
 
 const OPTIONAL_BYTE_ORDER_MARK = "\\ufeff?";

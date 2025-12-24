@@ -9,6 +9,8 @@
 
     <hr border-dashed my-2 />
 
-    <EditorToolbarFileImport />
+    <ClientOnly>
+      <EditorToolbarFileImport />
+    </ClientOnly>
   </EditorToolbarBox>
 </template>

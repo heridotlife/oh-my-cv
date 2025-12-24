@@ -28,9 +28,9 @@
     <UiDialog v-model:open="deleteDialogOpen">
       <UiDialogContent>
         <UiDialogHeader>
-          <UiDialogTitle>{{ $t('dashboard.delete_confirm.title') }}</UiDialogTitle>
+          <UiDialogTitle>{{ $t("dashboard.delete_confirm.title") }}</UiDialogTitle>
           <UiDialogDescription>
-            {{ $t('dashboard.delete_confirm.message', { name: props.resume.name }) }}
+            {{ $t("dashboard.delete_confirm.message", { name: props.resume.name }) }}
           </UiDialogDescription>
         </UiDialogHeader>
 
@@ -44,14 +44,14 @@
 
         <UiDialogFooter>
           <UiButton variant="outline" @click="closeDeleteDialog">
-            {{ $t('dashboard.cancel') }}
+            {{ $t("dashboard.cancel") }}
           </UiButton>
           <UiButton
             variant="destructive"
             :disabled="deleteConfirmation !== 'delete'"
             @click="confirmDelete"
           >
-            {{ $t('dashboard.delete_confirm.button') }}
+            {{ $t("dashboard.delete_confirm.button") }}
           </UiButton>
         </UiDialogFooter>
       </UiDialogContent>

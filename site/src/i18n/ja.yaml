@@ -10,14 +10,14 @@ head:
   keywords: 履歴書作成, CV作成, 職務経歴書作成, Markdown履歴書
 
 landing:
-  hero: Markdownで<span text-primary>履歴書</span>を書こう！
+  hero: "Markdownで<span text-blue-700 dark:text-blue-300>履歴書</span>を書こう！"
   desc: これは、データをプライベートに保ちながら、履歴書を簡単に作成・管理できる無料のオープンソースツールです。
   start: 履歴書を作成する
   feats:
     - title: シンプルで強力
-      items: 複数の履歴書を管理<br>リアルタイムプレビュー<br>PDFへのエクスポート<br>完全なカスタマイズ<br>フォントの選択とアイコンの追加<br>そして<a href="https://github.com/heridotlife/oh-my-cv#features" target="_blank">その他の機能</a>
+      items: "複数の履歴書を管理<br>リアルタイムプレビュー<br>PDFへのエクスポート<br>完全なカスタマイズ<br>フォントの選択とアイコンの追加<br>そして<a href='https://github.com/heridotlife/oh-my-cv#features' target='_blank'>その他の機能</a>"
     - title: プライバシー優先
-      items: オープンソースで無料<br>すべてのデータはローカルに保存されます<br>ログインや登録は不要<br>ユーザートラッキングなし<br>広告なし
+      items: "オープンソースで無料<br>すべてのデータはローカルに保存されます<br>ログインや登録は不要<br>ユーザートラッキングなし<br>広告なし"
 
 dashboard:
   my_resumes: 私の履歴書
@@ -31,7 +31,7 @@ dashboard:
   delete: 削除
   delete_confirm:
     title: 履歴書を削除
-    message: 本当に "{name}" を削除しますか？この操作は取り消せません。
+    message: "本当に '{name}' を削除しますか？この操作は取り消せません。"
     placeholder: 確認のため 'delete' と入力してください
     button: 履歴書を削除
   cancel: キャンセル
@@ -51,7 +51,7 @@ toolbar:
       title: PDFをエクスポート
       alert:
         title: 注意！
-        content: Windowsで印刷する場合、印刷設定ポップアップで "Microsoft Print to PDF" ではなく、<b>"Save as PDF" (PDFとして保存)</b> を選択してください。
+        content: "Windowsで印刷する場合、印刷設定ポップアップで 'Microsoft Print to PDF' ではなく、<b>'Save as PDF' (PDFとして保存)</b> を選択してください。"
     export_md: Markdownをエクスポート
   correct_case:
     title: 大文字・小文字の修正
@@ -85,7 +85,7 @@ notification:
   new: 新しい履歴書を作成しました
   duplicate: 履歴書 "{old}" の複製 "{new}" を作成しました
   correct:
-    yes: {num} 語を修正しました
+    yes: "{num} 語を修正しました"
     no: すべての大文字・小文字は正しいです！
   import:
     yes: データが正常にインポートされました！

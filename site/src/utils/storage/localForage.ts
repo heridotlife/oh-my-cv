@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as localForage from "localforage";
 import { isClient, copy, now } from "@renovamen/utils";
 import type {

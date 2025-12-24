@@ -26,7 +26,7 @@
               <span
                 :class="[
                   'rounded-full flex-center size-5',
-                  i ? 'bg-blue-400' : 'bg-primary'
+                  i ? 'bg-blue-600' : 'bg-primary'
                 ]"
                 text="white xs"
               >

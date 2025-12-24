@@ -104,7 +104,7 @@ onMounted(async () => {
     );
 
   if ("queryLocalFonts" in window) {
-    // @ts-ignore: Chrome 103 Experimental
+    // @ts-expect-error: Chrome 103 Experimental
     window.queryLocalFonts().then((fonts) => {
       const uniqFamily: Record<string, boolean> = {};
 

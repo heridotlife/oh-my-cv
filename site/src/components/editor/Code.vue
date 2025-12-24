@@ -17,7 +17,21 @@
       <TabsTrigger value="css" p="x-4" :disabled="loading">CSS</TabsTrigger>
     </TabsList>
 
-    <div ref="editor" flex-1 />
+    <!-- Wrapper for TabsContent and editor -->
+    <div class="relative flex-1 overflow-hidden">
+      <!-- TabsContent for Markdown - provides proper ARIA structure -->
+      <TabsContent value="markdown" class="h-full">
+        <!-- Content managed by Monaco editor below -->
+      </TabsContent>
+
+      <!-- TabsContent for CSS - provides proper ARIA structure -->
+      <TabsContent value="css" class="h-full">
+        <!-- Content managed by Monaco editor below -->
+      </TabsContent>
+
+      <!-- Monaco editor container - positioned absolutely to overlay both panels -->
+      <div ref="editor" class="absolute inset-0 z-10" />
+    </div>
   </TabsRoot>
 </template>
 

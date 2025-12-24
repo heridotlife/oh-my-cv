@@ -89,10 +89,23 @@ export const setupMonacoTheme = async (monaco: typeof Monaco) => {
   monaco.editor.defineTheme("vs-dark-dimmed", {
     base: "vs-dark",
     inherit: true,
-    rules: [],
+    rules: [
+      { token: "comment", foreground: "9CA3AF", fontStyle: "italic" },
+      { token: "keyword", foreground: "60A5FA" },
+      { token: "string", foreground: "A7F3D0" },
+      { token: "number", foreground: "FCD34D" },
+      { token: "regexp", foreground: "F472B6" },
+      { token: "type", foreground: "5EEAD4" },
+      { token: "variable", foreground: "E5E7EB" },
+      { token: "constant", foreground: "FBBF24" },
+      { token: "function", foreground: "C084FC" },
+      { token: "", foreground: "E5E7EB" }
+    ],
     colors: {
       "editor.background": "#22262B",
       "editor.lineHighlightBorder": "#4b5563",
+      "editorLineNumber.foreground": "#9CA3AF",
+      "editorLineNumber.activeForeground": "#E5E7EB",
       "dropdown.background": "#4b5563",
       "menu.separatorBackground": "#6b7280"
     }

@@ -10,7 +10,7 @@ head:
   keywords: resume maker, cv maker, curriculum vitae maker, markdown resume
 
 landing:
-  hero: Write your <span text-primary>resumes</span> in Markdown!
+  hero: Write your <span text-blue-700 dark:text-blue-300>resumes</span> in Markdown!
   desc: is a free, open-source tool that helps you easily create and manage your resumes, while keeping your data private.
   start: Create My Resume
   feats:

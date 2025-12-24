@@ -6,7 +6,7 @@ export const DEFAULT_STYLES = {
   marginH: 45,
   lineHeight: 1.3,
   paragraphSpace: 5,
-  themeColor: "#377bb5",
+  themeColor: "#4ba3f5",
   fontCJK: {
     name: "华康宋体",
     fontFamily: "HKST"
@@ -246,6 +246,17 @@ ${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="definition"]::marker {
 ${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="reference"] {
   font-size: 100%;
   top: 0;
+}
+
+${PREVIEW_SELECTOR} [data-scope="cross-ref"][data-part="link"] {
+  text-decoration: underline !important;
+  color: inherit;
+}
+
+/* Links - General Accessibility */
+
+${PREVIEW_SELECTOR} a {
+  text-decoration: underline !important;
 }
 
 /* Dark & print mode */

@@ -11,7 +11,7 @@ const { RENDER } = useConstant();
  * handled by the `vue-smart-pages` package.
  */
 export class DynamicCssService {
-  constructor() { }
+  constructor() {}
 
   private _selector = (id?: string | number) => {
     return `#resume-${id ?? RENDER.PREVIEW_ID}`;

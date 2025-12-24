@@ -10,14 +10,14 @@ head:
   keywords: pembuat resume, pembuat cv, pembuat curriculum vitae, resume markdown
 
 landing:
-  hero: Tulis <span text-primary>resume</span> Anda dengan Markdown!
+  hero: Tulis <span text-blue-700 dark:text-blue-300>resume</span> Anda dengan Markdown!
   desc: adalah alat gratis dan open-source yang membantu Anda membuat dan mengelola resume dengan mudah, sambil menjaga privasi data Anda.
   start: Buat Resume Saya
   feats:
     - title: Sederhana dan Kuat
-      items: Kelola banyak resume<br>Pratinjau real-time<br>Ekspor ke PDF<br>Dapat disesuaikan sepenuhnya<br>Pilih font dan tambahkan ikon<br>Dan <a href="https://github.com/heridotlife/oh-my-cv#features" target="_blank">lebih banyak fitur</a>
+      items: "Kelola banyak resume<br>Pratinjau real-time<br>Ekspor ke PDF<br>Dapat disesuaikan sepenuhnya<br>Pilih font dan tambahkan ikon<br>Dan <a href='https://github.com/heridotlife/oh-my-cv#features' target='_blank'>lebih banyak fitur</a>"
     - title: Privasi Terutama
-      items: Open source dan gratis<br>Semua data disimpan secara lokal<br>Tidak perlu login atau registrasi<br>Tanpa pelacakan pengguna<br>Tanpa iklan
+      items: "Open source dan gratis<br>Semua data disimpan secara lokal<br>Tidak perlu login atau registrasi<br>Tanpa pelacakan pengguna<br>Tanpa iklan"
 
 dashboard:
   my_resumes: Resume Saya
@@ -31,7 +31,7 @@ dashboard:
   delete: Hapus
   delete_confirm:
     title: Hapus Resume
-    message: Apakah Anda yakin ingin menghapus "{name}"? Tindakan ini tidak dapat dibatalkan.
+    message: "Apakah Anda yakin ingin menghapus '{name}'? Tindakan ini tidak dapat dibatalkan."
     placeholder: Ketik 'delete' untuk konfirmasi
     button: Hapus Resume
   cancel: Batal
@@ -51,7 +51,7 @@ toolbar:
       title: Ekspor PDF
       alert:
         title: Perhatian!
-        content: Saat mencetak di Windows, harap pilih "Save as PDF" di popup pengaturan cetak, <b>bukan</b> "Microsoft Print to PDF".
+        content: "Saat mencetak di Windows, harap pilih 'Save as PDF' di popup pengaturan cetak, <b>bukan</b> 'Microsoft Print to PDF'."
     export_md: Ekspor Markdown
   correct_case:
     title: Koreksi Huruf Besar/Kecil

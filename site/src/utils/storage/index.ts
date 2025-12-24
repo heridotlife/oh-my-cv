@@ -126,6 +126,7 @@ export class StorageService {
       // TODO: Use toast to show error message
       console.error(`Switch error: Resume ${id} not found.`);
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { id, updated_at, created_at, ...duplicated } = data!;
 
       const { data: duplicatedData, error: createError } = await this._db.create({
@@ -170,7 +171,7 @@ export class StorageService {
     const json = (() => {
       try {
         return JSON.parse(content);
-      } catch (error) {
+      } catch {
         return null;
       }
     })();

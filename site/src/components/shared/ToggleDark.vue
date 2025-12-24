@@ -7,6 +7,7 @@
   >
     <div
       v-for="mode in modes"
+      :key="mode.value"
       :class="[
         'absolute transition-transform duration-500',
         mode.icon,

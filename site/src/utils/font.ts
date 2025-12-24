@@ -69,7 +69,11 @@ export class GoogleFontsService {
       const fonts = loader.getFontMap();
 
       fonts.forEach((font) => {
-        this.isCJK(font) ? cjk.push(font) : en.push(font);
+        if (this.isCJK(font)) {
+          cjk.push(font);
+        } else {
+          en.push(font);
+        }
       });
     }
 
