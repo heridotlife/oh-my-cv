@@ -1,0 +1,69 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+
+categories:
+  - title: "🚀 Features"
+    labels:
+      - "feature"
+      - "enhancement"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "fix"
+      - "bugfix"
+      - "bug"
+  - title: "♿ Accessibility"
+    labels:
+      - "accessibility"
+      - "a11y"
+  - title: "🧰 Maintenance"
+    labels:
+      - "chore"
+      - "dependencies"
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
+      - "docs"
+
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+
+version-resolver:
+  major:
+    labels:
+      - "major"
+      - "breaking"
+  minor:
+    labels:
+      - "minor"
+      - "feature"
+  patch:
+    labels:
+      - "patch"
+      - "fix"
+      - "bugfix"
+  default: patch
+
+autolabeler:
+  - label: "feature"
+    title:
+      - "/^feat/i"
+  - label: "fix"
+    title:
+      - "/^fix/i"
+  - label: "chore"
+    title:
+      - "/^chore/i"
+  - label: "documentation"
+    title:
+      - "/^docs/i"
+  - label: "accessibility"
+    title:
+      - "/^a11y/i"
+      - "/accessibility/i"
+      - "/wcag/i"
+
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION

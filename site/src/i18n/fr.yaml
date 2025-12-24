@@ -7,7 +7,7 @@ close_toolbar: Fermer la barre d'outils
 head:
   title: Oh My CV! - Éditeur de CV en ligne gratuit
   desc: Éditeur de CV en ligne gratuit, qui vous permet de créer votre CV en seulement quelques minutes !
-  keywords: éditeur de CV, créateur de CV, éditeur de curriculum vitae, CV en Markdown 
+  keywords: éditeur de CV, créateur de CV, éditeur de curriculum vitae, CV en Markdown
 landing:
   hero: Écrivez des <span text-primary>CV</span> en Markdown!
   desc: C'est un outil gratuit et open-source vous permettant de créer et gérer vos CVs, sans toucher à vos données personelles.

@@ -32,6 +32,7 @@ svg.iconify {
   scrollbar-width: none; /* Firefox */
 }
 
-.hide-scrollbar::-webkit-scrollbar { /* Safari and Chrome */
+.hide-scrollbar::-webkit-scrollbar {
+  /* Safari and Chrome */
   display: none;
 }
