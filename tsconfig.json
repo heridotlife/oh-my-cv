@@ -11,14 +11,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "types": [
-      "node"
-    ]
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["node"]
   },
   "include": [
     "packages/case-police/**/*.ts",
@@ -30,11 +24,5 @@
     "packages/vue-smart-pages/**/*.ts",
     "packages/vue-zoom/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".nuxt",
-    "site",
-    "packages/markdown-it-*/**"
-  ]
+  "exclude": ["node_modules", "dist", ".nuxt", "site", "packages/markdown-it-*/**"]
 }

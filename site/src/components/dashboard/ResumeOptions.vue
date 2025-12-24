@@ -38,7 +38,6 @@
           <UiInput
             v-model="deleteConfirmation"
             :placeholder="$t('dashboard.delete_confirm.placeholder')"
-            @input="deleteConfirmation = $event.target.value"
           />
         </div>
 
