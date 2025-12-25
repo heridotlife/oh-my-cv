@@ -1,4 +1,49 @@
-import { heridotlife } from "@heridotlife/eslint-config";
+import js from "@eslint/js";
+import prettier from "eslint-plugin-prettier/recommended";
+import vue from "eslint-plugin-vue";
 import vueAccessibility from "eslint-plugin-vuejs-accessibility";
+import tseslint from "typescript-eslint";
+import vueParser from "vue-eslint-parser";
 
-export default heridotlife({}, ...vueAccessibility.configs["flat/recommended"]);
+export default [
+  // Ignore patterns
+  {
+    ignores: [
+      "**/node_modules",
+      "**/dist",
+      "**/.output",
+      "**/.nuxt",
+      "**/.nitro",
+      "**/coverage"
+    ]
+  },
+
+  // Base configs
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...vue.configs["flat/recommended"],
+  ...vueAccessibility.configs["flat/recommended"],
+
+  // Custom rules
+  {
+    files: ["**/*.{js,mjs,cjs,ts,vue}"],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: "module"
+      }
+    },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
+      ],
+      "vue/multi-word-component-names": "off"
+    }
+  },
+
+  // Prettier must be last
+  prettier
+];
