@@ -25,6 +25,7 @@
     "axe-core": "^4.11.0",
     "bumpp": "^9.11.1",
     "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-vue": "^10.6.2",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
