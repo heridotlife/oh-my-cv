@@ -2,14 +2,14 @@
 
 [![CI](https://github.com/heridotlife/oh-my-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/heridotlife/oh-my-cv/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/heridotlife/oh-my-cv/actions/workflows/codeql.yml/badge.svg)](https://github.com/heridotlife/oh-my-cv/actions/workflows/codeql.yml)
-[![Deploy](https://github.com/heridotlife/oh-my-cv/actions/workflows/deploy.yaml/badge.svg)](https://github.com/heridotlife/oh-my-cv/actions/workflows/deploy.yaml)
 [![WCAG 2.1 AA/AAA](https://img.shields.io/badge/WCAG%202.1-AA%2FAAA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://ohmycv.heri.life)
 
 Microsoft Word and LaTeX are too overkill for a resume.
 
 So, why not write it in Markdown?
 
-Have fun: [ohmycv.app](https://ohmycv.app/)
+Have fun: [ohmycv.heri.life](https://ohmycv.heri.life/)
 
 &nbsp;
 
@@ -37,7 +37,7 @@ Have fun: [ohmycv.app](https://ohmycv.app/)
 - It works offline ([PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps))
 - Your data in your hands:
   - All data is saved locally in your browser (see [here](https://localforage.github.io/localForage/) for details)
-  - Hosted on [GitHub Pages](https://pages.github.com/) as an open-source static website, which doesn't (have the ability to) collect your data
+  - Hosted on [Cloudflare Pages](https://pages.cloudflare.com/) as an open-source static website, which doesn't (have the ability to) collect your data
   - No user tracking or ads
 - Dark mode
 
