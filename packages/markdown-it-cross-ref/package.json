@@ -7,17 +7,17 @@
     "markdown-it-plugin",
     "markdown-it"
   ],
-  "homepage": "https://github.com/Renovamen/oh-my-cv/tree/main/packages/markdown-it-cross-ref",
+  "homepage": "https://github.com/heridotlife/oh-my-cv/tree/main/packages/markdown-it-cross-ref",
   "bugs": {
-    "url": "https://github.com/Renovamen/oh-my-cv"
+    "url": "https://github.com/heridotlife/oh-my-cv"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Renovamen/oh-my-cv.git",
+    "url": "git+https://github.com/heridotlife/oh-my-cv.git",
     "directory": "packages/markdown-it-cross-ref"
   },
   "license": "MIT",
-  "author": "Renovamen <renovamenzxh@gmail.com>",
+  "author": "Heri <mail@heri.life>",
   "files": [
     "dist"
   ],
