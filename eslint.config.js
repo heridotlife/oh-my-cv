@@ -24,13 +24,23 @@ export default [
   ...vue.configs["flat/recommended"],
   ...vueAccessibility.configs["flat/recommended"],
 
-  // Custom rules
+  // JavaScript files
   {
-    files: ["**/*.{js,mjs,cjs,ts,vue}"],
+    files: ["**/*.{js,mjs,cjs}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module"
+    }
+  },
+
+  // TypeScript and Vue files
+  {
+    files: ["**/*.{ts,vue}"],
     languageOptions: {
       parser: vueParser,
       parserOptions: {
         parser: tseslint.parser,
+        ecmaVersion: "latest",
         sourceType: "module"
       }
     },
