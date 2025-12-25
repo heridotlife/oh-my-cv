@@ -17,16 +17,16 @@
       class="hstack fixed bottom-4 ml-2 shadow-c rounded-full overflow-hidden text-primary-foreground bg-blue-500"
       lg="bottom-auto top-15 opacity-0 hover:opacity-100 focus-within:opacity-100"
     >
-      <button @click="scale *= 1.1" aria-label="Zoom in">
+      <button aria-label="Zoom in" @click="scale *= 1.1">
         <span i-lucide:zoom-in />
       </button>
-      <button @click="scale /= 1.1" aria-label="Zoom out">
+      <button aria-label="Zoom out" @click="scale /= 1.1">
         <span i-lucide:zoom-out />
       </button>
-      <button @click="fitWidth" aria-label="Fit width">
+      <button aria-label="Fit width" @click="fitWidth">
         <span i-fluent:arrow-autofit-width-20-filled />
       </button>
-      <button @click="fitHeight" aria-label="Fit height">
+      <button aria-label="Fit height" @click="fitHeight">
         <span i-fluent:arrow-autofit-height-20-filled />
       </button>
     </div>

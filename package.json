@@ -20,19 +20,22 @@
     "release:pkg:version": "bumpp package.json packages/*/package.json --commit \"build: publish v%s\" --all --tag --push",
     "serve": "pnpm --filter=site serve"
   },
-  "prettier": "@renovamen/prettier-config",
   "devDependencies": {
-    "@renovamen/eslint-config": "^0.1.9",
-    "@renovamen/prettier-config": "^0.1.9",
+    "@eslint/js": "^9.39.2",
     "axe-core": "^4.11.0",
     "bumpp": "^9.11.1",
     "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vue": "^10.6.2",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "pnpm": "^9.15.9",
     "prettier": "^3.7.4",
     "taze": "^0.14.3",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1",
+    "vue-eslint-parser": "^10.2.0"
   },
   "pnpm": {
     "overrides": {

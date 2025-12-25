@@ -1,0 +1,29 @@
+{
+  // Cloudflare Pages configuration for oh-my-cv
+  "name": "oh-my-cv",
+  "compatibility_date": "2024-12-25",
+  // Pages configuration
+  "pages_build_output_dir": ".output/public",
+  // Build configuration
+  "build": {
+    "command": "pnpm build",
+    "cwd": ".",
+    "watch_dir": "site"
+  },
+  // Environment variables (set these in Cloudflare Pages dashboard)
+  "vars": {
+    "NODE_VERSION": "20"
+  },
+  // Routes configuration
+  "routes": [
+    {
+      "pattern": "/*",
+      "custom_domain": true
+    }
+  ],
+  // Development configuration
+  "dev": {
+    "port": 3000,
+    "local_protocol": "http"
+  }
+}

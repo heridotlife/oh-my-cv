@@ -1,6 +1,7 @@
 import type { PluginSimple, Renderer, ParserBlock, StateBlock } from "markdown-it";
 
 // same as UNESCAPE_MD_RE plus a space
+// eslint-disable-next-line no-useless-escape
 const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
 const renderNewPage: Renderer.RenderRule = () => `<div class="md-it-newpage"></div>`;

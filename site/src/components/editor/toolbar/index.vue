@@ -21,8 +21,8 @@
               <UiButton
                 size="round"
                 variant="ghost-secondary"
-                @click="scrollTo(tool.id)"
                 :aria-label="getTooltip(tool.id)"
+                @click="scrollTo(tool.id)"
               >
                 <span :class="[tool.icon, ' size-4']" />
               </UiButton>

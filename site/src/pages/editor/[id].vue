@@ -5,8 +5,8 @@
         <UiButton
           variant="ghost-secondary"
           size="round"
-          @click="isToolbarOpen = !isToolbarOpen"
           :aria-label="isToolbarOpen ? $t('close_toolbar') : $t('open_toolbar')"
+          @click="isToolbarOpen = !isToolbarOpen"
         >
           <span
             :class="[

@@ -8,6 +8,7 @@ export const slugify = (str: string) =>
       .toLowerCase()
       .replace(/\s+/g, "-") // Replace whitespace with -
       .replace(
+        // eslint-disable-next-line no-useless-escape
         /[\]\[\!\'\#\$\%\&\(\)\*\+\,\.\/\:\;\<\=\>\?\@\\\^\_\{\|\}\~\`。，、；：？！…—·ˉ¨‘’“”々～‖∶＂＇｀｜〃〔〕〈〉《》「」『』．〖〗【】（）［］｛｝]/g,
         ""
       ) // Remove known punctuators

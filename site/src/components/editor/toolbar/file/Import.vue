@@ -45,8 +45,8 @@
             type="submit"
             size="icon"
             class="shrink-0"
-            @click="uploadFileFromURL"
             :disabled="pastedURL === ''"
+            @click="uploadFileFromURL"
           >
             <span class="sr-only">Submit</span>
             <span i-line-md:confirm size-4 />

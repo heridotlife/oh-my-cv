@@ -18,7 +18,7 @@
     </UiAlert>
 
     <div class="mt-3 text-right">
-      <UiButton @click="correct" size="sm">
+      <UiButton size="sm" @click="correct">
         <span i-carbon:rocket mr-1 />
         {{ $t("toolbar.correct_case.btn") }}
       </UiButton>
