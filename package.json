@@ -20,10 +20,10 @@
     "release:pkg:version": "bumpp package.json packages/*/package.json --commit \"build: publish v%s\" --all --tag --push",
     "serve": "pnpm --filter=site serve"
   },
-  "prettier": "@renovamen/prettier-config",
+  "prettier": "@heridotlife/prettier-config",
   "devDependencies": {
-    "@renovamen/eslint-config": "^0.1.9",
-    "@renovamen/prettier-config": "^0.1.9",
+    "@heridotlife/eslint-config": "workspace:*",
+    "@heridotlife/prettier-config": "workspace:*",
     "axe-core": "^4.11.0",
     "bumpp": "^9.11.1",
     "eslint": "^9.39.2",

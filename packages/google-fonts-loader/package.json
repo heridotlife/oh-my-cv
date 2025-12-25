@@ -6,17 +6,17 @@
     "google fonts",
     "fonts"
   ],
-  "homepage": "https://github.com/Renovamen/oh-my-cv/tree/main/packages/gfonts-loader",
+  "homepage": "https://github.com/heridotlife/oh-my-cv/tree/main/packages/gfonts-loader",
   "bugs": {
-    "url": "https://github.com/Renovamen/oh-my-cv"
+    "url": "https://github.com/heridotlife/oh-my-cv"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Renovamen/oh-my-cv.git",
+    "url": "git+https://github.com/heridotlife/oh-my-cv.git",
     "directory": "packages/gfonts-loader"
   },
   "license": "MIT",
-  "author": "Renovamen <renovamenzxh@gmail.com>",
+  "author": "Heri <mail@heri.life>",
   "files": [
     "dist"
   ],

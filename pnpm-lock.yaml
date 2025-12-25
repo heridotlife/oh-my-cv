@@ -11,12 +11,12 @@ overrides:
 importers:
   .:
     devDependencies:
-      "@renovamen/eslint-config":
-        specifier: ^0.1.9
-        version: 0.1.9(@types/eslint@9.6.1)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      "@renovamen/prettier-config":
-        specifier: ^0.1.9
-        version: 0.1.9
+      "@heridotlife/eslint-config":
+        specifier: workspace:*
+        version: link:packages/eslint-config
+      "@heridotlife/prettier-config":
+        specifier: workspace:*
+        version: link:packages/prettier-config
       axe-core:
         specifier: ^4.11.0
         version: 4.11.0
@@ -52,6 +52,54 @@ importers:
         version: 0.6.1
 
   packages/dynamic-css: {}
+
+  packages/eslint-config:
+    dependencies:
+      astro-eslint-parser:
+        specifier: ^1.1.0
+        version: 1.2.2
+      eslint:
+        specifier: ^8.57.0 || ^9.0.0
+        version: 9.39.2(jiti@2.6.1)
+      eslint-config-prettier:
+        specifier: ^9.1.0
+        version: 9.1.2(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-astro:
+        specifier: ^1.3.1
+        version: 1.5.0(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-format:
+        specifier: ^0.1.3
+        version: 0.1.3(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-prettier:
+        specifier: ^5.2.1
+        version: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@9.1.2(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.7.4)
+      eslint-plugin-react:
+        specifier: ^7.37.3
+        version: 7.37.5(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-solid:
+        specifier: ^0.14.5
+        version: 0.14.5(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      eslint-plugin-vue:
+        specifier: ^9.32.0
+        version: 9.33.0(eslint@9.39.2(jiti@2.6.1))
+      globals:
+        specifier: ^15.14.0
+        version: 15.15.0
+      local-pkg:
+        specifier: ^0.5.1
+        version: 0.5.1
+      prettier:
+        specifier: ^3.4.2
+        version: 3.7.4
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
+      typescript-eslint:
+        specifier: ^8.19.0
+        version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      vue-eslint-parser:
+        specifier: ^9.4.3
+        version: 9.4.3(eslint@9.39.2(jiti@2.6.1))
 
   packages/front-matter:
     dependencies:
@@ -104,6 +152,8 @@ importers:
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
+
+  packages/prettier-config: {}
 
   packages/utils: {}
 
@@ -3124,21 +3174,6 @@ packages:
     resolution:
       {
         integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==
-      }
-
-  "@renovamen/eslint-config@0.1.9":
-    resolution:
-      {
-        integrity: sha512-4zwrW1bhawYmuN0CgGQMeKI7Zv14g44ZVWsytX6hlvRdB2IYY1QNXXW6Nn+OyVK7JjduU5OH/cp78IKEuiYy5Q==
-      }
-    engines: { node: ^18.18.0 || >=20.0.0 }
-    peerDependencies:
-      eslint: ^8.57.0 || ^9.0.0
-
-  "@renovamen/prettier-config@0.1.9":
-    resolution:
-      {
-        integrity: sha512-Jq0XIm6Wz7JoT/R5I+7oFul/KhstTI+a8A4ccivoqSsLF1RwDlPW7C+Jzkfz8aVu8Iqxrku82N0P3DN+4LSl8Q==
       }
 
   "@rolldown/pluginutils@1.0.0-beta.56":
@@ -13013,30 +13048,6 @@ snapshots:
       supports-color: 10.2.2
 
   "@poppinss/exception@1.2.3": {}
-
-  "@renovamen/eslint-config@0.1.9(@types/eslint@9.6.1)(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)":
-    dependencies:
-      astro-eslint-parser: 1.2.2
-      eslint: 9.39.2(jiti@2.6.1)
-      eslint-config-prettier: 9.1.2(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-astro: 1.5.0(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-format: 0.1.3(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-prettier: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@9.1.2(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.7.4)
-      eslint-plugin-react: 7.37.5(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-solid: 0.14.5(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      eslint-plugin-vue: 9.33.0(eslint@9.39.2(jiti@2.6.1))
-      globals: 15.15.0
-      local-pkg: 0.5.1
-      prettier: 3.7.4
-      prettier-plugin-astro: 0.14.1
-      typescript-eslint: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      vue-eslint-parser: 9.4.3(eslint@9.39.2(jiti@2.6.1))
-    transitivePeerDependencies:
-      - "@types/eslint"
-      - supports-color
-      - typescript
-
-  "@renovamen/prettier-config@0.1.9": {}
 
   "@rolldown/pluginutils@1.0.0-beta.56": {}
 

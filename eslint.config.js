@@ -1,4 +1,4 @@
-import { renovamen } from "@renovamen/eslint-config";
+import { heridotlife } from "@heridotlife/eslint-config";
 import vueAccessibility from "eslint-plugin-vuejs-accessibility";
 
-export default renovamen({}, ...vueAccessibility.configs["flat/recommended"]);
+export default heridotlife({}, ...vueAccessibility.configs["flat/recommended"]);
