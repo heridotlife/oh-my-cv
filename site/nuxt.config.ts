@@ -7,6 +7,12 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
+  },
+
   modules: [
     "@vueuse/nuxt",
     "@unocss/nuxt",
