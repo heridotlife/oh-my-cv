@@ -67,7 +67,7 @@ export default defineConfig({
     presetShadcn(
       {
         color: {
-          base: "orange",
+          base: "blue",
           light: {
             background: "0 0% 100%",
             foreground: "215 25% 27%",
@@ -75,6 +75,8 @@ export default defineConfig({
             "card-foreground": "215 25% 27%",
             popover: "0 0% 100%",
             "popover-foreground": "215 25% 27%",
+            primary: "17 88% 40%", // Darker orange for better contrast
+            "primary-foreground": "0 0% 100%", // White text
             secondary: "220 13% 91%",
             "secondary-foreground": "220.9 39.3% 11%", // gray
             muted: "220 14.3% 95.9%", // gray

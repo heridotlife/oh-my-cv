@@ -35,7 +35,7 @@
               <h2 text-foreground>{{ $t(`landing.feats[${i}].title`) }}</h2>
             </div>
 
-            <ul text="sm muted-foreground" pl-2 ml-4.5 list-disc>
+            <ul text="sm foreground" pl-2 ml-4.5 list-disc>
               <li
                 v-for="line in $t(`landing.feats[${i}].items`).split('<br>')"
                 :key="line"

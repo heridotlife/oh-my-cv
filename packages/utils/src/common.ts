@@ -11,8 +11,8 @@ export const slugify = (str: string) =>
         /[\]\[\!\'\#\$\%\&\(\)\*\+\,\.\/\:\;\<\=\>\?\@\\\^\_\{\|\}\~\`。，、；：？！…—·ˉ¨‘’“”々～‖∶＂＇｀｜〃〔〕〈〉《》「」『』．〖〗【】（）［］｛｝]/g,
         ""
       ) // Remove known punctuators
-      .replace(/^\-+/, "") // Remove leading -
-      .replace(/\-+$/, "") // Remove trailing -
+      .replace(/^-/, "") // Remove leading - (fixed ReDoS)
+      .replace(/-$/, "") // Remove trailing - (fixed ReDoS)
   );
 
 export const htmlEscape = (str: string) => {

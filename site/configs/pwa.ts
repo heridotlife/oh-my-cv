@@ -50,8 +50,9 @@ export const pwa: ModuleOptions = {
           }
         }
       }
+      }
     ]
   },
-  registerWebManifestInRouteRules: true,
+registerWebManifestInRouteRules: true,
   writePlugin: true
 };
