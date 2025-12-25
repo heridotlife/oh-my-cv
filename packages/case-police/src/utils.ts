@@ -37,12 +37,14 @@ export const AVALIABLE_PRESETS: Record<Preset, Record<string, string>> = {
   abbreviates
 };
 
+function escapeRegex(literal: string): string {
+  // Escape all regex special characters, including backslash.
+  return literal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 export function buildRegex(dictionary: Record<string, string>): RegExp {
-  const keys = Object.keys(dictionary);
-  const regex = new RegExp(
-    `\\b(${keys.join("|").replace(/\\/g, "\\\\").replace(/\+/g, "\\+")})\\b`,
-    "gi"
-  );
+  const keys = Object.keys(dictionary).map(escapeRegex);
+  const regex = new RegExp(`\\b(${keys.join("|")})\\b`, "gi");
   return regex;
 }
 
