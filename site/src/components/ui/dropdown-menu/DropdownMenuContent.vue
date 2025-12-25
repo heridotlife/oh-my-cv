@@ -18,7 +18,6 @@ const props = withDefaults(
 const emits = defineEmits<DropdownMenuContentEmits>();
 
 const delegatedProps = computed(() => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { class: _, ...delegated } = props;
 
   return delegated;

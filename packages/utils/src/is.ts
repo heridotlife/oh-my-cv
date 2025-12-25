@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const isClient = typeof window !== "undefined" && typeof document !== "undefined";
 
 export const isMac =

@@ -1,5 +1,5 @@
 <template>
-  <div class="resume-render" :id="`resume-${id}`" ref="target" />
+  <div :id="`resume-${id}`" ref="target" class="resume-render" />
 </template>
 
 <script lang="ts" setup>

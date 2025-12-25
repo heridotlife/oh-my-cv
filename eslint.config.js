@@ -45,12 +45,16 @@ export default [
       }
     },
     rules: {
+      // Nuxt auto-imports composables, so disable no-undef for Vue files
+      "no-undef": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
       ],
-      "vue/multi-word-component-names": "off"
+      "vue/multi-word-component-names": "off",
+      "vue/no-v-html": "off",
+      "vue/require-default-prop": "off"
     }
   },
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as localForage from "localforage";
 import { isObject, isInteger, arrayify } from "@heridotlife/utils";
 import type { ValidVersion } from "~/composables/constant";
