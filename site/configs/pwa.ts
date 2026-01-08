@@ -33,6 +33,7 @@ export const pwa: ModuleOptions = {
   },
   workbox: {
     globPatterns: ["**/*.{js,css,html,otf,ttf,woff2,png,svg}"],
+    navigateFallback: null,
     maximumFileSizeToCacheInBytes: 16000000,
     cleanupOutdatedCaches: true,
     runtimeCaching: [

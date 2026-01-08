@@ -90,17 +90,15 @@ import { normalizeProps, useMachine } from "@zag-js/vue";
 const { styles, setStyle } = useStyleStore();
 const { COLOR } = useConstant();
 
-const [state, send] = useMachine(
-  colorPicker.machine({
-    id: "theme-color",
-    value: colorPicker.parse(styles.themeColor),
-    positioning: {
-      gutter: 14
-    },
-    onValueChange: (details) => setStyle("themeColor", toHex(details.value))
-  })
-);
-const api = computed(() => colorPicker.connect(state.value, send, normalizeProps));
+const service = useMachine(colorPicker.machine, {
+  id: "theme-color",
+  defaultValue: colorPicker.parse(styles.themeColor),
+  positioning: {
+    gutter: 14
+  },
+  onValueChange: (details) => setStyle("themeColor", toHex(details.value))
+});
+const api = computed(() => colorPicker.connect(service, normalizeProps));
 
 const toHex = (value: colorPicker.Color) =>
   "#" + value.toHexInt().toString(16).toUpperCase().padStart(6, "0");
