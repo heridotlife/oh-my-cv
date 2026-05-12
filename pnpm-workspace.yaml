@@ -1,3 +1,7 @@
 packages:
   - site
   - packages/*
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  vue-demi: true

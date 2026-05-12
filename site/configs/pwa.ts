@@ -33,7 +33,14 @@ export const pwa: ModuleOptions = {
   },
   workbox: {
     globPatterns: ["**/*.{js,css,html,otf,ttf,woff2,png,svg}"],
-    globIgnores: ["**/zh-cn.html", "**/en.html", "**/ja.html", "**/fr.html", "**/id.html", "**/sp.html"],
+    globIgnores: [
+      "**/zh-cn.html",
+      "**/en.html",
+      "**/ja.html",
+      "**/fr.html",
+      "**/id.html",
+      "**/sp.html"
+    ],
     navigateFallback: null,
     maximumFileSizeToCacheInBytes: 16000000,
     cleanupOutdatedCaches: true,
