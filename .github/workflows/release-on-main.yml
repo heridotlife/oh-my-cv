@@ -1,0 +1,75 @@
+name: Create Release on Main
+
+# Trigger when changes are pushed to main branch
+# This will create a new GitHub release with auto-generated notes
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # Fetch all history for release notes
+
+      - name: Get version from package.json
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=v${VERSION}" >> $GITHUB_OUTPUT
+          echo "📦 Version from package.json: v${VERSION}"
+
+      - name: Check if tag already exists
+        id: check_tag
+        run: |
+          if git rev-parse "${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Tag ${{ steps.version.outputs.version }} already exists, skipping release"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "✅ Tag ${{ steps.version.outputs.version }} does not exist, will create release"
+          fi
+
+      - name: Create Release
+        if: steps.check_tag.outputs.exists == 'false'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.version.outputs.version }}
+          name: Release ${{ steps.version.outputs.version }}
+          generateReleaseNotes: true
+          makeLatest: true
+          commit: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ## 🚀 Release ${{ steps.version.outputs.version }}
+
+            This release was automatically created when changes were merged to the `main` branch.
+
+            ### What's Changed
+            See the full changelog below for all changes included in this release.
+
+      - name: Summary
+        run: |
+          echo "## 📦 Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.check_tag.outputs.exists }}" == "true" ]; then
+            echo "⚠️  **Release skipped** - Tag already exists" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Bump version in \`package.json\` to create a new release" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **Release created successfully**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Version:** ${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Author:** @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          fi

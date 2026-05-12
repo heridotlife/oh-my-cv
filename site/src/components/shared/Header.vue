@@ -1,6 +1,6 @@
 <template>
   <header class="hstack justify-between pl-4 pr-1">
-    <nuxt-link class="hstack gap-x-2" :to="$nuxt.$localePath('/')">
+    <nuxt-link class="hstack gap-x-2" :to="localePath('/')">
       <SharedLogo text-base />
       <div text-lg><SharedBrandName /></div>
     </nuxt-link>
@@ -8,7 +8,7 @@
     <div class="hstack">
       <UiButton
         :as="NuxtLink"
-        :to="$nuxt.$localePath('/dashboard')"
+        :to="localePath('/dashboard')"
         variant="ghost-secondary"
         size="xs"
         class="h-8 gap-x-1"
@@ -69,6 +69,7 @@
 <script lang="ts" setup>
 import { NuxtLink } from "#components";
 
+const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
 const { locale, locales } = useI18n();
 

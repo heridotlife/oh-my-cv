@@ -3,6 +3,7 @@ import { i18n } from "./configs/i18n";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   srcDir: "src/",
 
   devtools: { enabled: false },

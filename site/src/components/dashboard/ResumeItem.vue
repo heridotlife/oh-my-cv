@@ -3,7 +3,7 @@
     <div h-80>
       <div class="resume-card group/card size-fit">
         <nuxt-link
-          :to="$nuxt.$localePath(`/editor/${props.resume.id}`)"
+          :to="localePath(`/editor/${props.resume.id}`)"
           class="block border overflow-hidden rounded-md ring-when-focus peer"
           :style="{
             width: `${size.w}px`,

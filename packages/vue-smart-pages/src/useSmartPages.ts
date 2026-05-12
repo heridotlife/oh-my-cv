@@ -1,4 +1,4 @@
-import { onMounted } from "vue";
+import { onMounted, type MaybeRef } from "vue";
 import {
   unrefElement,
   toValue,
@@ -6,7 +6,6 @@ import {
   type WatchThrottledOptions,
   type MaybeComputedElementRef
 } from "@vueuse/core";
-import type { MaybeRef } from "@vueuse/shared";
 import { breakPage, setWidthAndMargins } from "./dom";
 import type { PageSize, PageMargins } from "./types";
 

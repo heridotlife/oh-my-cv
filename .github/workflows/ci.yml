@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint-and-format:
@@ -21,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24.15.0"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -47,7 +51,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24.15.0"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -73,7 +77,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24.15.0"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -90,6 +94,25 @@ jobs:
       - name: Install axe-cli
         run: pnpm add -D -w @axe-core/cli
 
+      - name: Install matching Chrome and ChromeDriver
+        run: npx browser-driver-manager install chrome
+
+      - name: Detect ChromeDriver path
+        id: chromedriver
+        run: |
+          npx browser-driver-manager which chrome
+          CHROMEDRIVER_PATH=$(grep '^CHROMEDRIVER_TEST_PATH=' "$HOME/.browser-driver-manager/.env" | cut -d'=' -f2- | tr -d '"')
+          # Prefix with $HOME only if path is relative (doesn't start with /)
+          if [[ ! "$CHROMEDRIVER_PATH" = /* ]]; then
+            CHROMEDRIVER_PATH="$HOME/$CHROMEDRIVER_PATH"
+          fi
+          echo "path=$CHROMEDRIVER_PATH" >> $GITHUB_OUTPUT
+
+      - name: Verify Chrome and ChromeDriver versions
+        run: |
+          npx browser-driver-manager version chrome
+          echo "ChromeDriver path: ${{ steps.chromedriver.outputs.path }}"
+
       - name: Start preview server
         run: pnpm serve &
         env:
@@ -99,7 +122,7 @@ jobs:
         run: npx wait-on http://localhost:3000 --timeout 60000
 
       - name: Run axe accessibility tests
-        run: npx axe http://localhost:3000 --exit
+        run: npx axe http://localhost:3000 --exit --chromedriver-path "${{ steps.chromedriver.outputs.path }}"
 
       - name: WCAG Compliance Summary
         if: success()

@@ -1,3 +1,13 @@
 packages:
   - site
   - packages/*
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+  vue-demi: true
+
+overrides:
+  mlly: "^1.8.2"
+  "@clack/core": "^1.3.1"
+  "@clack/prompts": "^1.4.0"
+  "@nuxt/kit": "^4.4.5"
