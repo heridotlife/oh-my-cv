@@ -8,7 +8,8 @@ export const isExternal = (path: string) => {
   return outboundRE.test(path);
 };
 
-export const isObject = (v: any) => toString.call(v) === "[object Object]";
+export const isObject = (v: any) =>
+  Object.prototype.toString.call(v) === "[object Object]";
 
 export const isInteger = (v: any, { allowString = false } = {}): boolean => {
   return typeof v === "number"
