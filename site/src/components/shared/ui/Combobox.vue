@@ -60,33 +60,28 @@ const collectionRef = computed(() =>
   })
 );
 
-const [state, send] = useMachine(
-  combobox.machine({
-    id: props.id,
-    collection: collectionRef.value,
-    value: [props.defaultValue],
-    openOnClick: true,
-    closeOnSelect: false,
-    onOpenChange: () => {
-      options.value = props.items;
-    },
-    onInputValueChange: ({ inputValue }) => {
-      const filtered = props.items.filter((item) =>
-        item.label.toLowerCase().includes(inputValue.toLowerCase())
-      );
-      options.value = filtered.length > 0 ? filtered : props.items;
-    },
-    onValueChange: ({ value }) => {
-      const item = props.items.find((i) => i.value === value[0]);
-      item?.onSelect();
-    }
-  }),
-  {
-    context: computed(() => ({
-      collection: collectionRef.value
-    }))
+const service = useMachine(combobox.machine, {
+  id: props.id,
+  get collection() {
+    return collectionRef.value;
+  },
+  defaultValue: [props.defaultValue],
+  openOnClick: true,
+  closeOnSelect: false,
+  onOpenChange: () => {
+    options.value = props.items;
+  },
+  onInputValueChange: ({ inputValue }) => {
+    const filtered = props.items.filter((item) =>
+      item.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    options.value = filtered.length > 0 ? filtered : props.items;
+  },
+  onValueChange: ({ value }) => {
+    const item = props.items.find((i) => i.value === value[0]);
+    item?.onSelect();
   }
-);
+});
 
-const api = computed(() => combobox.connect(state.value, send, normalizeProps));
+const api = computed(() => combobox.connect(service, normalizeProps));
 </script>

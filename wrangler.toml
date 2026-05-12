@@ -1,6 +1,6 @@
 name = "oh-my-cv"
 compatibility_date = "2024-12-25"
 
-# Pages configuration - Nuxt builds to site/dist
+# Pages configuration - Nuxt cloudflare-pages-static outputs to site/dist
 pages_build_output_dir = "site/dist"
 
