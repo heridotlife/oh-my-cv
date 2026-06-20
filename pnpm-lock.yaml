@@ -33,7 +33,7 @@ importers:
         version: 10.1.8(eslint@9.39.4(jiti@2.7.0))
       eslint-plugin-prettier:
         specifier: ^5.5.5
-        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.7.0)))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)
+        version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.7.0)))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3)
       eslint-plugin-vue:
         specifier: ^10.9.1
         version: 10.9.1(@typescript-eslint/parser@8.59.3(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(vue-eslint-parser@10.4.0(eslint@9.39.4(jiti@2.7.0)))
@@ -73,8 +73,8 @@ importers:
   packages/front-matter:
     dependencies:
       js-yaml:
-        specifier: ^4.1.0
-        version: 4.1.1
+        specifier: ^4.2.0
+        version: 4.2.0
     devDependencies:
       "@types/js-yaml":
         specifier: ^4.0.9
@@ -91,8 +91,8 @@ importers:
         specifier: ^14.1.1
         version: 14.1.2
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.1
+        specifier: ^14.2.0
+        version: 14.2.0
 
   packages/markdown-it-katex:
     dependencies:
@@ -110,8 +110,8 @@ importers:
         specifier: ^14.1.1
         version: 14.1.2
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.1
+        specifier: ^14.2.0
+        version: 14.2.0
 
   packages/markdown-it-latex-cmds:
     devDependencies:
@@ -119,8 +119,8 @@ importers:
         specifier: ^14.1.1
         version: 14.1.2
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.1
+        specifier: ^14.2.0
+        version: 14.2.0
 
   packages/utils: {}
 
@@ -7895,10 +7895,10 @@ packages:
         integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==
       }
 
-  js-yaml@4.1.1:
+  js-yaml@4.2.0:
     resolution:
       {
-        integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==
+        integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==
       }
     hasBin: true
 
@@ -8066,10 +8066,10 @@ packages:
         integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
       }
 
-  linkify-it@5.0.0:
+  linkify-it@5.0.1:
     resolution:
       {
-        integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==
+        integrity: sha512-wVoTjP4Q6R0NW5hiZkVJaFZPWgtXfoGF+6LucL3/FtiNjmcHhYjEr5f1Kqjirc1nBW07J/ZuRFumqr2oqccEWg==
       }
 
   listhen@1.10.0:
@@ -8238,10 +8238,10 @@ packages:
         integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==
       }
 
-  markdown-it@14.1.1:
+  markdown-it@14.2.0:
     resolution:
       {
-        integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==
+        integrity: sha512-1TGiQiJVRQ3NPmZH6sx5Cfnmg6GQm9jvC1ch4TK511NjSJvjzKLzn5pPfZRNZkRPZP0HqCioSndqH8v2nRaWVQ==
       }
     hasBin: true
 
@@ -12837,7 +12837,7 @@ snapshots:
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.1
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       minimatch: 3.1.5
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -12979,7 +12979,7 @@ snapshots:
       "@vue/compiler-sfc": 3.5.34
       debug: 4.4.3
       fast-glob: 3.3.3
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       json5: 2.2.3
       pathe: 1.1.2
       picocolors: 1.1.1
@@ -13844,7 +13844,7 @@ snapshots:
   "@rollup/plugin-yaml@4.1.2(rollup@4.60.3)":
     dependencies:
       "@rollup/pluginutils": 5.3.0(rollup@4.60.3)
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       tosource: 2.0.0-alpha.3
     optionalDependencies:
       rollup: 4.60.3
@@ -15361,7 +15361,7 @@ snapshots:
       c12: 2.0.4(magicast@0.3.5)
       cac: 6.7.14
       escalade: 3.2.0
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       jsonc-parser: 3.3.1
       package-manager-detector: 0.2.11
       prompts: 2.4.2
@@ -16147,13 +16147,14 @@ snapshots:
     dependencies:
       eslint: 9.39.4(jiti@2.7.0)
 
-  eslint-plugin-prettier@5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.7.0)))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3):
+  eslint-plugin-prettier@5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.4(jiti@2.7.0)))(eslint@9.39.4(jiti@2.7.0))(prettier@3.8.3):
     dependencies:
       eslint: 9.39.4(jiti@2.7.0)
       prettier: 3.8.3
       prettier-linter-helpers: 1.0.1
       synckit: 0.11.12
     optionalDependencies:
+      "@types/eslint": 9.6.1
       eslint-config-prettier: 10.1.8(eslint@9.39.4(jiti@2.7.0))
 
   eslint-plugin-vue@10.9.1(@typescript-eslint/parser@8.59.3(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(vue-eslint-parser@10.4.0(eslint@9.39.4(jiti@2.7.0))):
@@ -16930,7 +16931,7 @@ snapshots:
 
   js-tokens@9.0.1: {}
 
-  js-yaml@4.1.1:
+  js-yaml@4.2.0:
     dependencies:
       argparse: 2.0.1
 
@@ -17007,7 +17008,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  linkify-it@5.0.0:
+  linkify-it@5.0.1:
     dependencies:
       uc.micro: 2.1.0
 
@@ -17113,11 +17114,11 @@ snapshots:
 
   markdown-it-link-attributes@4.0.1: {}
 
-  markdown-it@14.1.1:
+  markdown-it@14.2.0:
     dependencies:
       argparse: 2.0.1
       entities: 4.5.0
-      linkify-it: 5.0.0
+      linkify-it: 5.0.1
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
@@ -18049,7 +18050,7 @@ snapshots:
 
   read-yaml-file@2.1.0:
     dependencies:
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       strip-bom: 4.0.0
 
   readable-stream@2.3.8:
@@ -19600,7 +19601,7 @@ snapshots:
 
   write-yaml-file@5.0.0:
     dependencies:
-      js-yaml: 4.1.1
+      js-yaml: 4.2.0
       write-file-atomic: 5.0.1
 
   ws@8.20.0: {}
