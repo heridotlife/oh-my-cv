@@ -23,24 +23,32 @@ categories:
     labels:
       - "documentation"
       - "docs"
+  # Version resolver (release-drafter v7 replaces the deprecated top-level
+  # `version-resolver` block with `type: version-resolver` category entries).
+  # The final condition-less entry reproduces the old `default: patch` behavior.
+  - type: "version-resolver"
+    semver-increment: "major"
+    when:
+      labels:
+        - "major"
+        - "breaking"
+  - type: "version-resolver"
+    semver-increment: "minor"
+    when:
+      labels:
+        - "minor"
+        - "feature"
+  - type: "version-resolver"
+    semver-increment: "patch"
+    when:
+      labels:
+        - "patch"
+        - "fix"
+        - "bugfix"
+  - type: "version-resolver"
+    semver-increment: "patch"
 
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
-
-version-resolver:
-  major:
-    labels:
-      - "major"
-      - "breaking"
-  minor:
-    labels:
-      - "minor"
-      - "feature"
-  patch:
-    labels:
-      - "patch"
-      - "fix"
-      - "bugfix"
-  default: patch
 
 autolabeler:
   - label: "feature"
