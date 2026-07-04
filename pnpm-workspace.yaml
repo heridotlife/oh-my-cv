@@ -3,6 +3,10 @@ packages:
   - packages/*
 allowBuilds:
   "@parcel/watcher": true
+  # chromedriver is pulled in at CI time by `pnpm add -D -w @axe-core/cli` in the
+  # accessibility job; pnpm 11 blocks its install script (secure-by-default) and
+  # fails the step unless the build is explicitly decided here.
+  chromedriver: true
   esbuild: true
   vue-demi: true
 
@@ -21,6 +25,21 @@ overrides:
   # versions requiring h3@2.x-rc, whose getRequestHost breaks the nitro
   # sitemap prerender. Baseline resolved only h3@1.15.11.
   "h3": "^1.15.11"
+  # Force a single Vue runtime. nuxt 3.12.3 resolves vue 3.5.38 while the UI
+  # libraries (radix-vue, pinia, @vueuse, @zag-js/vue, vue-router, ...) resolve
+  # 3.5.39; two Vue copies ship in the client bundle and break component
+  # instances at runtime ("Cannot read properties of null (reading 'refs')").
+  # Pin the whole vue family to one version to dedupe.
+  vue: "3.5.39"
+  "@vue/shared": "3.5.39"
+  "@vue/reactivity": "3.5.39"
+  "@vue/runtime-core": "3.5.39"
+  "@vue/runtime-dom": "3.5.39"
+  "@vue/server-renderer": "3.5.39"
+  "@vue/compiler-core": "3.5.39"
+  "@vue/compiler-dom": "3.5.39"
+  "@vue/compiler-sfc": "3.5.39"
+  "@vue/compiler-ssr": "3.5.39"
 
 peerDependencyRules:
   allowedVersions:
