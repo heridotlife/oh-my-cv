@@ -28,7 +28,7 @@
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@unocss/nuxt": "^0.61.2",
     "@vite-pwa/nuxt": "^0.9.0",
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "^10.11.0",
     "@zag-js/color-picker": "^1.41.2",
     "@zag-js/combobox": "^1.41.2",
