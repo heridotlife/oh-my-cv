@@ -24,7 +24,7 @@ const _isOpen = (state: StateBlock | StateInline, start: number) => {
 };
 
 const _isClose = (state: StateBlock | StateInline, pos: number) => {
-  return state.src.charCodeAt(pos) === 0x5d /* ] */;
+  return state.src.charCodeAt(pos) === 0x5d; /* ] */
 };
 
 const _extractLabel = (state: StateBlock | StateInline, start: number, end: number) => {
