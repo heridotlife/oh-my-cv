@@ -12,8 +12,8 @@ allowBuilds:
 
 overrides:
   vite: "^7.3.3"
-  nuxt: "3.21.8"
-  "@nuxt/kit": "3.21.8"
+  nuxt: "4.4.8"
+  "@nuxt/kit": "4.4.8"
   ws: "^8.21.0"
   # Keep h3 on the 1.x line. Regenerating the lockfile under pnpm 11 let some
   # dev-only devtools grandchildren (@vitejs/devtools, devframe) float up to
@@ -43,4 +43,4 @@ overrides:
 
 peerDependencyRules:
   allowedVersions:
-    eslint: "9"
+    eslint: "9 || 10"
