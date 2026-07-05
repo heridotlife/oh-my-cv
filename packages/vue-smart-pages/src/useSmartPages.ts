@@ -1,7 +1,6 @@
-import { onMounted, type MaybeRef } from "vue";
+import { onMounted, toValue, type MaybeRef } from "vue";
 import {
   unrefElement,
-  toValue,
   watchThrottled,
   type WatchThrottledOptions,
   type MaybeComputedElementRef
