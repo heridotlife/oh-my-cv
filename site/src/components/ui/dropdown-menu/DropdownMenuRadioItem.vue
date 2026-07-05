@@ -7,7 +7,7 @@ import {
   type DropdownMenuRadioItemProps,
   useForwardPropsEmits
 } from "radix-vue";
-import { Circle } from "lucide-vue-next";
+import { Circle } from "@lucide/vue";
 import { cn } from "~/utils/shadcn";
 
 const props = defineProps<

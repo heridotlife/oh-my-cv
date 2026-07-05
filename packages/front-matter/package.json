@@ -34,11 +34,10 @@
     "build:pkg": "pnpm run build-fast:pkg --dts"
   },
   "dependencies": {
-    "js-yaml": "^4.2.0"
+    "js-yaml": "^5.2.1"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.14.10"
+    "@types/node": "^26.1.0"
   },
   "publishConfig": {
     "access": "public"

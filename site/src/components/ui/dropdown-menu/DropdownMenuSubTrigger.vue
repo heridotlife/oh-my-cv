@@ -5,7 +5,7 @@ import {
   type DropdownMenuSubTriggerProps,
   useForwardProps
 } from "radix-vue";
-import { ChevronRight } from "lucide-vue-next";
+import { ChevronRight } from "@lucide/vue";
 import { cn } from "~/utils/shadcn";
 
 const props = defineProps<
