@@ -7,7 +7,7 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits
 } from "radix-vue";
-import { Check } from "lucide-vue-next";
+import { Check } from "@lucide/vue";
 import { cn } from "~/utils/shadcn";
 
 const props = defineProps<

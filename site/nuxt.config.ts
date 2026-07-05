@@ -10,7 +10,26 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      autoSubfolderIndex: false
+      autoSubfolderIndex: false,
+      // nuxt 4's crawler no longer seeds the localized routes on its own
+      // (it did under nuxt 3.21), so direct hits to locale homes would fall
+      // back to the SPA shell. Seed them explicitly + keep crawling for the
+      // rest so /sp, /zh-cn, ... get their own prerendered entry points.
+      crawlLinks: true,
+      routes: [
+        "/",
+        "/dashboard",
+        "/sp",
+        "/sp/dashboard",
+        "/zh-cn",
+        "/zh-cn/dashboard",
+        "/fr",
+        "/fr/dashboard",
+        "/id",
+        "/id/dashboard",
+        "/ja",
+        "/ja/dashboard"
+      ]
     }
   },
 

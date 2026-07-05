@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    // TS 6 deprecates moduleResolution "node"/node10 and baseUrl (removed in
+    // TS 7). Acknowledge to keep the current resolution behavior; migrate the
+    // options when TS 7 lands.
+    "ignoreDeprecations": "6.0",
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
     "jsx": "preserve",
