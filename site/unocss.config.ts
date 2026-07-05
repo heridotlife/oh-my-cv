@@ -9,7 +9,10 @@ import {
 } from "unocss";
 import { i18n } from "./configs/i18n";
 import presetAnimations from "unocss-preset-animations";
-import { presetShadcn } from "unocss-preset-shadcn";
+// Use the v3 (HSL) build: our theme colors and presetUno() (→ presetWind3) are
+// HSL-based. The default entry targets Tailwind v4 / presetWind4 and emits
+// oklch(var(--x)) utilities, which render transparent against our HSL vars.
+import { presetShadcnV3 as presetShadcn } from "unocss-preset-shadcn/v3";
 
 export default defineConfig({
   shortcuts: [

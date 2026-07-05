@@ -11,15 +11,10 @@ allowBuilds:
   vue-demi: true
 
 overrides:
-  vite: "^5.3.3"
-  nuxt: "3.12.3"
-  "@nuxtjs/i18n": "8.3.1"
-  "@nuxt/kit": "3.12.3"
+  vite: "^7.3.3"
+  nuxt: "3.21.8"
+  "@nuxt/kit": "3.21.8"
   ws: "^8.21.0"
-  # Pin @nuxt/devtools: site declares "latest", whose dist-tag now points to
-  # 4.0.0-alpha.7, which drags in h3@2.x-rc and breaks the sitemap prerender.
-  # Hold at the last known-good pre-release (matches the pnpm-9 baseline).
-  "@nuxt/devtools": "4.0.0-alpha.4"
   # Keep h3 on the 1.x line. Regenerating the lockfile under pnpm 11 let some
   # dev-only devtools grandchildren (@vitejs/devtools, devframe) float up to
   # versions requiring h3@2.x-rc, whose getRequestHost breaks the nitro
@@ -40,6 +35,11 @@ overrides:
   "@vue/compiler-dom": "3.5.39"
   "@vue/compiler-sfc": "3.5.39"
   "@vue/compiler-ssr": "3.5.39"
+  # Security: monaco-editor@0.55.1 pins dompurify to 3.2.7, which is flagged by
+  # multiple GHSA advisories (mXSS / nesting-depth mutation issues). Bump the
+  # transitive dep to the latest 3.4.x patch. 3.2.7 -> 3.4.11 is within the
+  # 3.x line (stable DOMPurify.sanitize API), so monaco is unaffected.
+  dompurify: "3.4.11"
 
 peerDependencyRules:
   allowedVersions:

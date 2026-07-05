@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
     "radix-vue/nuxt",
     "shadcn-nuxt"
   ],
