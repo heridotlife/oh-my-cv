@@ -22,6 +22,7 @@ overrides:
   "@vue/compiler-dom": 3.5.39
   "@vue/compiler-sfc": 3.5.39
   "@vue/compiler-ssr": 3.5.39
+  dompurify: 3.4.11
 
 importers:
   .:
@@ -6541,10 +6542,10 @@ packages:
       }
     engines: { node: ">= 4" }
 
-  dompurify@3.2.7:
+  dompurify@3.4.11:
     resolution:
       {
-        integrity: sha512-WhL/YuveyGXJaerVlMYGWhvQswa7myDG17P7Vu65EWC05o8vfeNbvNf4d/BOvH99+ZW+LlQsc1GDKMa1vNK6dw==
+        integrity: sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==
       }
 
   domutils@3.2.2:
@@ -15980,7 +15981,7 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
 
-  dompurify@3.2.7:
+  dompurify@3.4.11:
     optionalDependencies:
       "@types/trusted-types": 2.0.7
 
@@ -17350,7 +17351,7 @@ snapshots:
 
   monaco-editor@0.55.1:
     dependencies:
-      dompurify: 3.2.7
+      dompurify: 3.4.11
       marked: 14.0.0
 
   mri@1.2.0: {}

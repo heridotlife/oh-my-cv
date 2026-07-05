@@ -40,6 +40,11 @@ overrides:
   "@vue/compiler-dom": "3.5.39"
   "@vue/compiler-sfc": "3.5.39"
   "@vue/compiler-ssr": "3.5.39"
+  # Security: monaco-editor@0.55.1 pins dompurify to 3.2.7, which is flagged by
+  # multiple GHSA advisories (mXSS / nesting-depth mutation issues). Bump the
+  # transitive dep to the latest 3.4.x patch. 3.2.7 -> 3.4.11 is within the
+  # 3.x line (stable DOMPurify.sanitize API), so monaco is unaffected.
+  dompurify: "3.4.11"
 
 peerDependencyRules:
   allowedVersions:
