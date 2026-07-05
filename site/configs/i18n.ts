@@ -42,7 +42,7 @@ export const i18n: NuxtI18nOptions = {
       file: "ja.yaml"
     }
   ],
-  langDir: "i18n",
+  langDir: "locales",
   compilation: {
     strictMessage: false
   }
