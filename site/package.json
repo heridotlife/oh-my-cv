@@ -45,7 +45,7 @@
     "monaco-editor": "^0.55.1",
     "nuxt": "^4.4.8",
     "@nuxtjs/sitemap": "^8.2.2",
-    "pinia": "^3.0.4",
+    "pinia": "^4.0.2",
     "radix-vue": "^1.9.17",
     "shadcn-nuxt": "^2.7.4",
     "tailwind-merge": "^3.6.0",
