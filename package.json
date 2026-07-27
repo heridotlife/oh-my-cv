@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "axe-core": "^4.12.1",
     "bumpp": "^11.1.0",
     "eslint": "^10.6.0",
@@ -31,7 +31,7 @@
     "eslint-plugin-vue": "^10.9.2",
     "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "pnpm": "^11.9.0",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.6",
     "taze": "^19.14.1",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",

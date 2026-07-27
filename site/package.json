@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.495",
+    "@iconify/json": "^2.2.506",
     "@nuxt/devtools": "^3.2.4",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.4.0",
@@ -26,7 +26,7 @@
     "@pinia/nuxt": "^0.11.3",
     "@heridotlife/utils": "workspace:*",
     "@types/markdown-it-link-attributes": "^3.0.5",
-    "@unocss/nuxt": "^66.7.4",
+    "@unocss/nuxt": "^66.7.5",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.3.0",
     "@vueuse/nuxt": "^14.3.0",
