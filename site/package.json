@@ -23,7 +23,7 @@
     "@ohmycv/vue-shortcuts": "workspace:*",
     "@ohmycv/vue-smart-pages": "workspace:*",
     "@ohmycv/vue-zoom": "workspace:*",
-    "@pinia/nuxt": "^0.11.3",
+    "@pinia/nuxt": "^1.0.1",
     "@heridotlife/utils": "workspace:*",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@unocss/nuxt": "^66.7.4",
