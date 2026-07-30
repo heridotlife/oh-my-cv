@@ -1,8 +1,11 @@
 name: CI
 
 on:
+  # Only run on direct pushes to main. Pushes to develop are always covered by
+  # the auto-created "develop -> main" PR (pull_request event below), so listing
+  # develop here as well would run CI twice for the same commit.
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main, develop]
 
