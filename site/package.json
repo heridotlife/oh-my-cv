@@ -42,7 +42,7 @@
     "@lucide/vue": "^1.27.0",
     "markdown-it-deflist": "^3.0.1",
     "markdown-it-link-attributes": "^4.0.1",
-    "monaco-editor": "^0.56.0",
+    "monaco-editor": "^0.55.1",
     "nuxt": "^4.5.0",
     "@nuxtjs/sitemap": "^8.3.0",
     "pinia": "^4.0.2",
