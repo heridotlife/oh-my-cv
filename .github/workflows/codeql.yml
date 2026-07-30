@@ -1,8 +1,11 @@
 name: "CodeQL Security Analysis"
 
 on:
+  # Only run on direct pushes to main. Pushes to develop are always covered by
+  # the auto-created "develop -> main" PR (pull_request event below), so listing
+  # develop here as well would run analysis twice for the same commit.
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main, develop]
   schedule:
@@ -35,7 +38,7 @@ jobs:
         uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "24.18.0"
           cache: "pnpm"
