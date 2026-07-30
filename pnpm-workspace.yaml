@@ -40,6 +40,16 @@ overrides:
   # transitive dep to the latest 3.4.x patch. 3.2.7 -> 3.4.11 is within the
   # 3.x line (stable DOMPurify.sanitize API), so monaco is unaffected.
   dompurify: "3.4.11"
+  # Security (transitive dev/build-tooling deps flagged by Dependabot). All are
+  # build-time only and never ship in the client bundle; forcing the patched
+  # releases via overrides keeps the vulnerable versions out of the tree.
+  shell-quote: "1.8.4" # GHSA critical: quote() fails to escape newlines in .op values
+  tar: "7.5.16" # node-tar PAX size-override parser differential (file smuggling)
+  launch-editor: "2.14.1" # NTLMv2 hash disclosure via UNC path handling (Windows)
+  "@babel/core": "7.29.6" # arbitrary file read via sourceMappingURL comment
+  # esbuild 0.25.12 is unaffected (below the advisory range); only bump the
+  # vulnerable 0.27.x/0.28.0 copies so the safe copy is left untouched.
+  "esbuild@>=0.27.3 <0.28.1": "0.28.1" # dev-server arbitrary file read (Windows)
 
 peerDependencyRules:
   allowedVersions:
