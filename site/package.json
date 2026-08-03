@@ -44,7 +44,7 @@
     "markdown-it-link-attributes": "^4.0.1",
     "monaco-editor": "^0.55.1",
     "nuxt": "^4.5.0",
-    "@nuxtjs/sitemap": "^8.3.0",
+    "@nuxtjs/sitemap": "^8.3.2",
     "pinia": "^4.0.2",
     "radix-vue": "^1.9.17",
     "shadcn-nuxt": "^2.8.0",
