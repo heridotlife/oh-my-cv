@@ -43,7 +43,7 @@
     "markdown-it-deflist": "^3.0.1",
     "markdown-it-link-attributes": "^4.0.1",
     "monaco-editor": "^0.55.1",
-    "nuxt": "^4.5.0",
+    "nuxt": "^4.5.1",
     "@nuxtjs/sitemap": "^8.3.0",
     "pinia": "^4.0.2",
     "radix-vue": "^1.9.17",
