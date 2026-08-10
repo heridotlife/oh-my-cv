@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.506",
-    "@nuxt/devtools": "^3.3.1",
+    "@iconify/json": "^2.2.510",
+    "@nuxt/devtools": "^3.4.1",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.5.0",
     "@ohmycv/case-police": "workspace:*",
@@ -44,7 +44,7 @@
     "markdown-it-link-attributes": "^4.0.1",
     "monaco-editor": "^0.55.1",
     "nuxt": "^4.5.0",
-    "@nuxtjs/sitemap": "^8.3.0",
+    "@nuxtjs/sitemap": "^8.3.3",
     "pinia": "^4.0.2",
     "radix-vue": "^1.9.17",
     "shadcn-nuxt": "^2.8.0",
