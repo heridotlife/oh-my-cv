@@ -1,13 +1,22 @@
-import type { PluginSimple, Renderer, ParserBlock, StateBlock } from "markdown-it";
+import type { MarkdownIt, RendererRule, StateBlock } from "markdown-it";
+
+// markdown-it 15 ships its own types and dropped the `Plugin*` helpers and
+// the `X.Rule*` namespaces; spell the rule signatures out instead.
+type BlockRule = (
+  state: StateBlock,
+  startLine: number,
+  endLine: number,
+  silent: boolean
+) => boolean;
 
 // same as UNESCAPE_MD_RE plus a space
 // eslint-disable-next-line no-useless-escape
 const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
-const renderNewPage: Renderer.RenderRule = () => `<div class="md-it-newpage"></div>`;
+const renderNewPage: RendererRule = () => `<div class="md-it-newpage"></div>`;
 
-const renderLineBreak: Renderer.RenderRule = (tokens, idx) =>
-  `<div class="md-it-line-break" style="margin-top:${tokens[idx].meta.h};"></div>`;
+const renderLineBreak: RendererRule = (tokens, idx) =>
+  `<div class="md-it-line-break" style="margin-top:${(tokens[idx].meta?.h as string | undefined) ?? ""};"></div>`;
 
 const checkPattern = (
   state: StateBlock,
@@ -37,7 +46,7 @@ const checkPattern = (
   };
 };
 
-const newPage: ParserBlock.RuleBlock = (state, start, end, silent) => {
+const newPage: BlockRule = (state, start, end, silent) => {
   if (!checkPattern(state, start, "\\newpage", { silent })) return false;
 
   // Skip "\newpage"
@@ -52,7 +61,7 @@ const newPage: ParserBlock.RuleBlock = (state, start, end, silent) => {
   return true;
 };
 
-const lineBreak: ParserBlock.RuleBlock = (state, start, end, silent) => {
+const lineBreak: BlockRule = (state, start, end, silent) => {
   // Try to find "\\["
   const res = checkPattern(state, start, "\\\\[", {
     minLength: 5, // Should be at least "\\[x]"
@@ -92,7 +101,7 @@ const lineBreak: ParserBlock.RuleBlock = (state, start, end, silent) => {
  * - `\newpage`: Adds a new page.
  * - `\\[10px]`: Adds a line break with a height of 10px.
  */
-export const MarkdownItLatexCmds: PluginSimple = (md) => {
+export const MarkdownItLatexCmds: (md: MarkdownIt) => void = (md) => {
   md.renderer.rules.renderNewPage = renderNewPage;
   md.renderer.rules.renderLineBreak = renderLineBreak;
 

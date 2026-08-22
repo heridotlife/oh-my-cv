@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@heridotlife/utils": "workspace:*",
-    "@vueuse/core": "^14.3.0",
-    "vue": "^3.5.40"
+    "@vueuse/core": "^14.4.0",
+    "vue": "^3.5.41"
   },
   "publishConfig": {
     "access": "public"
