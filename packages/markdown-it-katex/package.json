@@ -38,12 +38,11 @@
   },
   "dependencies": {
     "@heridotlife/utils": "workspace:*",
-    "katex": "^0.18.1"
+    "katex": "^0.18.4"
   },
   "devDependencies": {
     "@types/katex": "^0.16.7",
-    "@types/markdown-it": "^14.1.1",
-    "markdown-it": "^14.3.0"
+    "markdown-it": "^15.0.0"
   },
   "publishConfig": {
     "access": "public"

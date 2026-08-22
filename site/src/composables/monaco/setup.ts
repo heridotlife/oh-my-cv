@@ -29,10 +29,12 @@ export const setupMonaco = async () => {
   const monaco = await import("monaco-editor");
   window.monaco = monaco;
 
-  // Import editor and css workers
+  // Import editor and css workers (monaco >= 0.56 exposes a package exports
+  // map that maps "./*" to "./esm/vs/*.js", so the canonical specifiers are
+  // without the "esm/vs" prefix — deep "esm/vs/..." imports no longer resolve)
   const [{ default: EditorWorker }, { default: CssWorker }] = await Promise.all([
-    import("monaco-editor/esm/vs/editor/editor.worker?worker"),
-    import("monaco-editor/esm/vs/language/css/css.worker?worker")
+    import("monaco-editor/editor/editor.worker?worker"),
+    import("monaco-editor/language/css/css.worker?worker")
   ]);
 
   window.MonacoEnvironment = {

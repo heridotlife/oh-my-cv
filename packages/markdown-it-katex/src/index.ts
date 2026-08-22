@@ -1,11 +1,16 @@
 import Katex, { type KatexOptions } from "katex";
-import type {
-  PluginWithOptions,
-  StateInline,
-  ParserBlock,
-  ParserInline
-} from "markdown-it";
+import type { MarkdownIt, StateBlock, StateInline } from "markdown-it";
 import { htmlEscape } from "@heridotlife/utils";
+
+// markdown-it 15 ships its own types and dropped the `Plugin*` helpers and
+// the `X.Rule*` namespaces; spell the rule signatures out instead.
+type InlineRule = (state: StateInline, silent: boolean) => boolean;
+type BlockRule = (
+  state: StateBlock,
+  startLine: number,
+  endLine: number,
+  silent: boolean
+) => boolean;
 
 const isValidDelim = (
   state: StateInline,
@@ -25,7 +30,7 @@ const isValidDelim = (
   return { canOpen, canClose };
 };
 
-const mathInline: ParserInline.RuleInline = (state, silent) => {
+const mathInline: InlineRule = (state, silent) => {
   if (state.src[state.pos] !== "$") return false;
 
   const res = isValidDelim(state, state.pos);
@@ -88,7 +93,7 @@ const mathInline: ParserInline.RuleInline = (state, silent) => {
   return true;
 };
 
-const mathBlock: ParserBlock.RuleBlock = (state, start, end, silent) => {
+const mathBlock: BlockRule = (state, start, end, silent) => {
   let pos = state.bMarks[start] + state.tShift[start];
   const max = state.eMarks[start];
 
@@ -145,7 +150,7 @@ const mathBlock: ParserBlock.RuleBlock = (state, start, end, silent) => {
  *
  * This one is typed and has clearer code.
  */
-export const MarkdownItKatex: PluginWithOptions<KatexOptions> = (
+export const MarkdownItKatex: (md: MarkdownIt, options?: KatexOptions) => void = (
   md,
   options = { throwOnError: false }
 ) => {
