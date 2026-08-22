@@ -11,9 +11,11 @@ allowBuilds:
   vue-demi: true
 
 overrides:
-  vite: "^7.3.3"
-  nuxt: "4.4.8"
-  "@nuxt/kit": "4.4.8"
+  # nuxt 4.5.x (@nuxt/vite-builder) mandates the vite 8 (rolldown) line —
+  # it imports transformWithOxc, which vite 7 does not export.
+  vite: "^8.1.5"
+  nuxt: "4.5.1"
+  "@nuxt/kit": "4.5.1"
   ws: "^8.21.0"
   # Keep h3 on the 1.x line. Regenerating the lockfile under pnpm 11 let some
   # dev-only devtools grandchildren (@vitejs/devtools, devframe) float up to
@@ -37,19 +39,29 @@ overrides:
   "@vue/compiler-ssr": "3.5.39"
   # Security: monaco-editor@0.55.1 pins dompurify to 3.2.7, which is flagged by
   # multiple GHSA advisories (mXSS / nesting-depth mutation issues). Bump the
-  # transitive dep to the latest 3.4.x patch. 3.2.7 -> 3.4.11 is within the
+  # transitive dep to the latest 3.4.x patch. 3.2.7 -> 3.4.13 is within the
   # 3.x line (stable DOMPurify.sanitize API), so monaco is unaffected.
-  dompurify: "3.4.11"
+  dompurify: "3.4.13"
   # Security (transitive dev/build-tooling deps flagged by Dependabot). All are
   # build-time only and never ship in the client bundle; forcing the patched
   # releases via overrides keeps the vulnerable versions out of the tree.
-  shell-quote: "1.8.4" # GHSA critical: quote() fails to escape newlines in .op values
-  tar: "7.5.16" # node-tar PAX size-override parser differential (file smuggling)
+  shell-quote: "1.9.0" # GHSA critical: quote() fails to escape newlines in .op values
+  tar: "7.5.21" # node-tar PAX size-override parser differential (file smuggling)
   launch-editor: "2.14.1" # NTLMv2 hash disclosure via UNC path handling (Windows)
   "@babel/core": "7.29.6" # arbitrary file read via sourceMappingURL comment
   # esbuild 0.25.12 is unaffected (below the advisory range); only bump the
   # vulnerable 0.27.x/0.28.0 copies so the safe copy is left untouched.
   "esbuild@>=0.27.3 <0.28.1": "0.28.1" # dev-server arbitrary file read (Windows)
+  # Security (Dependabot 2026-08-22 batch): more transitive build/dev-time
+  # deps flagged. Scoped ranges so safe copies already in the tree (nanoid
+  # 5.x, js-yaml 5.x, postcss 8.5.23, ...) are left untouched.
+  "brace-expansion@>=2.0.0 <2.1.3": "2.1.3" # ReDoS via cubic parse
+  "brace-expansion@>=5.0.0 <5.0.7": "5.0.7" # ReDoS via cubic parse
+  "postcss@<8.5.23": "8.5.23" # GHSA ReDoS in the comment tokenizer
+  "fast-uri@<3.1.5": "3.1.5" # ReDoS via trailing-backslash input
+  "js-yaml@<4.3.1": "4.3.1" # GHSA ReDoS in the load() parser
+  "nanoid@>=3 <3.3.16": "3.3.16" # GHSA predictable id from non-integer size
+  "svgo@>=4.0.0 <4.0.2": "4.0.2" # GHSA XSS via badly chained transforms
 
 peerDependencyRules:
   allowedVersions:
