@@ -32,7 +32,7 @@
     "eslint-plugin-vuejs-accessibility": "^2.6.0",
     "pnpm": "^11.22.0",
     "prettier": "^3.9.6",
-    "taze": "^19.16.0",
+    "taze": "20.0.0",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0",
