@@ -2,19 +2,41 @@
 
 import type {
   Token,
-  PluginSimple,
-  ParserBlock,
-  ParserInline,
-  Core,
-  Renderer,
+  Env,
+  MarkdownIt,
+  RendererRule,
+  StateCore,
   StateBlock,
   StateInline
 } from "markdown-it";
 
-const _anchorId = (tokens: Token[], idx: number) =>
-  Number(tokens[idx].meta.id + 1).toString();
+// markdown-it 15 ships its own types and dropped the `Plugin*` helpers and
+// the `X.Rule*` namespaces; spell the rule signatures out instead.
+type BlockRule = (
+  state: StateBlock,
+  startLine: number,
+  endLine: number,
+  silent: boolean
+) => boolean;
+type InlineRule = (state: StateInline, silent: boolean) => boolean;
+type CoreRule = (state: StateCore) => void;
 
-const _anchorLabel = (tokens: Token[], idx: number) => tokens[idx].meta.label;
+// markdown-it 15 types `env` values as `unknown`; narrow our namespace once.
+interface CrossRefEnv {
+  labelToId?: Record<string, number>;
+  list?: string[];
+}
+
+const _crossRef = (state: { env: Env }): CrossRefEnv => {
+  state.env.crossRef ??= {};
+  return state.env.crossRef as CrossRefEnv;
+};
+
+const _anchorId = (tokens: Token[], idx: number) =>
+  (Number(tokens[idx].meta?.id) + 1).toString();
+
+const _anchorLabel = (tokens: Token[], idx: number) =>
+  tokens[idx].meta?.label as string | undefined;
 
 const _isOpen = (state: StateBlock | StateInline, start: number) => {
   return (
@@ -32,7 +54,7 @@ const _extractLabel = (state: StateBlock | StateInline, start: number, end: numb
 };
 
 const render =
-  (type: "defOpen" | "ref"): Renderer.RenderRule =>
+  (type: "defOpen" | "ref"): RendererRule =>
   (tokens, idx) => {
     const id = `cross-ref-${_anchorId(tokens, idx)}`;
     const label = _anchorLabel(tokens, idx);
@@ -49,9 +71,9 @@ const _processDefToken = (
   pos: number,
   label: string
 ) => {
-  state.env.crossRef ??= {};
-  state.env.crossRef.labelToId ??= {};
-  state.env.crossRef.labelToId[label] = -1;
+  const env = _crossRef(state);
+  env.labelToId ??= {};
+  env.labelToId[label] = -1;
 
   // Create and push the opening token
   const openToken = new state.Token("renderDefOpen", "", 1);
@@ -106,7 +128,7 @@ const _processDefToken = (
   state.tokens.push(closeToken);
 };
 
-const processDef: ParserBlock.RuleBlock = (state, startLine, endLine, silent) => {
+const processDef: BlockRule = (state, startLine, endLine, silent) => {
   const start = state.bMarks[startLine] + state.tShift[startLine];
   const max = state.eMarks[startLine];
 
@@ -133,8 +155,8 @@ const processDef: ParserBlock.RuleBlock = (state, startLine, endLine, silent) =>
   return true;
 };
 
-const processRef: ParserInline.RuleInline = (state, silent) => {
-  if (!state.env.crossRef?.labelToId) return false;
+const processRef: InlineRule = (state, silent) => {
+  if (!_crossRef(state).labelToId) return false;
 
   // Should be at least 4 chars ("[~x]") and start with "[~"
   if (state.pos + 3 > state.posMax || !_isOpen(state, state.pos)) return false;
@@ -149,18 +171,18 @@ const processRef: ParserInline.RuleInline = (state, silent) => {
   // Extract content between "[~" and "]"
   const label = _extractLabel(state, state.pos + 2, pos);
 
+  const env = _crossRef(state);
+
   // No corresponding definition found
-  if (state.env.crossRef.labelToId[label] === undefined) return false;
+  if (env.labelToId?.[label] === undefined) return false;
 
   if (!silent) {
-    state.env.crossRef.list ??= [];
+    env.list ??= [];
 
     const id =
-      state.env.crossRef.labelToId[label] === -1
-        ? state.env.crossRef.list.push(label) - 1
-        : state.env.crossRef.labelToId[label];
+      env.labelToId[label] === -1 ? env.list.push(label) - 1 : env.labelToId[label];
 
-    state.env.crossRef.labelToId[label] = id;
+    env.labelToId[label] = id;
 
     const token = state.push("renderRef", "", 0);
     token.meta = { id, label };
@@ -170,14 +192,17 @@ const processRef: ParserInline.RuleInline = (state, silent) => {
   return true;
 };
 
-const postProcessDef: Core.RuleCore = (state) => {
+const postProcessDef: CoreRule = (state) => {
+  const labelToId = _crossRef(state).labelToId;
+
   // We don't know the ID of the definition when we first encounter it,
   // so we need to go back and update it after we've processed all the references
   for (const token of state.tokens) {
     if (token.type === "renderDefOpen") {
+      const label = token.meta?.label as string | undefined;
       token.meta = {
         ...token.meta,
-        id: state.env.crossRef?.labelToId?.[token.meta.label] ?? -1
+        id: (label !== undefined ? labelToId?.[label] : undefined) ?? -1
       };
     }
   }
@@ -196,7 +221,7 @@ const postProcessDef: Core.RuleCore = (state) => {
  * This is a reference to [~Reference name].
  * ```
  */
-export const MarkdownItCrossRef: PluginSimple = (md) => {
+export const MarkdownItCrossRef: (md: MarkdownIt) => void = (md) => {
   md.renderer.rules.renderRef = render("ref");
   md.renderer.rules.renderDefOpen = render("defOpen");
   md.renderer.rules.renderDefClose = () => "</li>\n</ul>\n";
