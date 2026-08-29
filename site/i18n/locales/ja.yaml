@@ -53,6 +53,7 @@ toolbar:
         title: 注意！
         content: "Windowsで印刷する場合、印刷設定ポップアップで 'Microsoft Print to PDF' ではなく、<b>'Save as PDF' (PDFとして保存)</b> を選択してください。"
     export_md: Markdownをエクスポート
+    export_rirekisho: 履歴書としてエクスポート
   correct_case:
     title: 大文字・小文字の修正
     example:
@@ -90,3 +91,19 @@ notification:
   import:
     yes: データが正常にインポートされました！
     no: データの形式が無効です。
+
+rirekisho:
+  title: 履歴書プレビュー
+  print: 印刷
+  close: 閉じる
+  sheet_title: 履歴書
+  furigana: ふりがな
+  name: 氏名
+  dob: 生年月日
+  address: 現住所
+  phone: 電話
+  email: メール
+  photo: 写真
+  year_month: 年月
+  history: 学歴・職歴
+  licenses: 免許・資格
