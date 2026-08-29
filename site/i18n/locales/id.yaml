@@ -53,6 +53,7 @@ toolbar:
         title: Perhatian!
         content: "Saat mencetak di Windows, harap pilih 'Save as PDF' di popup pengaturan cetak, <b>bukan</b> 'Microsoft Print to PDF'."
     export_md: Ekspor Markdown
+    export_rirekisho: Ekspor Rirekisho (履歴書)
   correct_case:
     title: Koreksi Huruf Besar/Kecil
     example:
@@ -90,3 +91,19 @@ notification:
   import:
     yes: Data berhasil diimpor!
     no: Format data tidak valid.
+
+rirekisho:
+  title: Pratinjau Rirekisho
+  print: Cetak
+  close: Tutup
+  sheet_title: 履歴書
+  furigana: ふりがな
+  name: 氏名
+  dob: 生年月日
+  address: 現住所
+  phone: 電話
+  email: メール
+  photo: 写真
+  year_month: 年月
+  history: 学歴・職歴
+  licenses: 免許・資格

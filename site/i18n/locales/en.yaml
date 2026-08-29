@@ -53,6 +53,7 @@ toolbar:
         title: Heads up!
         content: When printing on Windows, please select "Save as PDF" in the print settings popup, <b>not</b> "Microsoft Print to PDF".
     export_md: Export Markdown
+    export_rirekisho: Export Rirekisho (履歴書)
   correct_case:
     title: Correct Case
     example:
@@ -90,3 +91,19 @@ notification:
   import:
     yes: Data has been successfully imported!
     no: Data format is invalid.
+
+rirekisho:
+  title: Rirekisho preview
+  print: Print
+  close: Close
+  sheet_title: 履歴書
+  furigana: ふりがな
+  name: 氏名
+  dob: 生年月日
+  address: 現住所
+  phone: 電話
+  email: メール
+  photo: 写真
+  year_month: 年月
+  history: 学歴・職歴
+  licenses: 免許・資格
