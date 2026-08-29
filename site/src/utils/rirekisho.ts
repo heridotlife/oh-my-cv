@@ -78,16 +78,21 @@ function extractDateRange(raw: string): {
     .map((s) => s.trim())
     .filter(Boolean);
   if (parts.length >= 2) {
-    return { start: parseDate(parts[0]), end: parseDate(parts[parts.length - 1]) };
+    return {
+      start: parseDate(parts[0]),
+      end: parseDate(parts[parts.length - 1])
+    };
   }
   return { start: parseDate(raw), end: null };
 }
 
-/** Strip markdown emphasis/links from a label. */
+/** Strip markdown emphasis/links and inline HTML tags from a label. */
 function cleanLabel(raw: string): string {
   return raw
     .replace(/\*\*/g, "")
     .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s{2,}/g, " ")
     .trim();
 }
 
@@ -187,13 +192,21 @@ export function buildRirekisho(markdown: string): RirekishoData {
       if (isDateLine(value) && school) {
         const range = extractDateRange(value);
         if (range.start)
-          history.push({ date: range.start, text: `${school} 入学`, kind: "education" });
+          history.push({
+            date: range.start,
+            text: `${school} 入学`,
+            kind: "education"
+          });
         // Degree/faculty line sits between 入学 and 卒業, undated but must
         // not float to the end of the sorted list — pin it to the end date.
         if (degree && range.end)
           history.push({ date: range.end, text: degree, kind: "education" });
         if (range.end)
-          history.push({ date: range.end, text: `${school} 卒業`, kind: "education" });
+          history.push({
+            date: range.end,
+            text: `${school} 卒業`,
+            kind: "education"
+          });
       } else if (school && !isLocationLine(value) && !degree) {
         degree = value;
       }
@@ -216,7 +229,11 @@ export function buildRirekisho(markdown: string): RirekishoData {
         });
       }
       if (dateRange?.end && org) {
-        history.push({ date: dateRange.end, text: `${org} 退社`, kind: "work" });
+        history.push({
+          date: dateRange.end,
+          text: `${org} 退社`,
+          kind: "work"
+        });
       }
       if (!dateRange?.start && org) {
         // Present job: start date only
@@ -271,7 +288,11 @@ export function buildRirekisho(markdown: string): RirekishoData {
         name = cleanLabel(line);
       if (name) {
         if (current)
-          licenses.push({ date: current.date, text: current.name, kind: "work" });
+          licenses.push({
+            date: current.date,
+            text: current.name,
+            kind: "work"
+          });
         current = { name, date: null };
         continue;
       }
@@ -294,4 +315,142 @@ export function buildRirekisho(markdown: string): RirekishoData {
   };
 
   return { personal, history, licenses };
+}
+
+/* ------------------------------------------------------------------ */
+/* 職務経歴書 (shokumukeirekisho) — career-history companion sheet.    */
+/* ------------------------------------------------------------------ */
+
+export type ShokumukiSkill = {
+  readonly category: string;
+  readonly items: string;
+};
+
+export type ShokumukiWork = {
+  /** Raw period text, e.g. "09/2024 - Present". */
+  readonly period: string;
+  readonly org: string;
+  readonly title: string;
+  readonly bullets: readonly string[];
+};
+
+export type ShokumukeirekishoData = {
+  readonly name: string;
+  readonly summary: string;
+  readonly skills: readonly ShokumukiSkill[];
+  readonly work: readonly ShokumukiWork[];
+};
+
+/** Split Experience into per-job parts, each starting at its **Heading**. */
+function splitExperience(
+  section: string
+): Array<{ label: string; values: string[]; bullets: string[] }> {
+  const parts = section
+    .split(/(?=^\*\*.+\*\*\s*$)/m)
+    .map((p) => p.trim())
+    .filter((p) => /^\*\*.+\*\*\s*$/.test(p.split("\n")[0] ?? ""));
+  return parts.map((part) => {
+    const lines = part
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean);
+    const heading = lines[0].match(/^\*\*(.+?)\*\*$/);
+    const values: string[] = [];
+    const bullets: string[] = [];
+    for (const line of lines.slice(1)) {
+      const item = line.match(/^~\s+(.*)$/);
+      if (item) values.push(cleanLabel(item[1]));
+      else if (/^[-*]\s+/.test(line))
+        bullets.push(cleanLabel(line.replace(/^[-*]\s+/, "")));
+    }
+    return { label: heading ? cleanLabel(heading[1]) : "", values, bullets };
+  });
+}
+
+export function buildShokumukeirekisho(markdown: string): ShokumukeirekishoData {
+  // --- Name from front matter (same rules as rirekisho) ---
+  const fmMatch = /^---\n([\s\S]*?)\n---/.exec(markdown);
+  const nameMatch = fmMatch ? /^name:\s*(.+)$/m.exec(fmMatch[1]) : null;
+  const name = nameMatch ? nameMatch[1].trim() : "";
+
+  // --- Summary → 自己PR ---
+  const sumSection = findSection(markdown, "Summary");
+  const summary = sumSection
+    ? sumSection
+        .split("\n")
+        .map((l) => cleanLabel(l.trim()))
+        .filter(Boolean)
+        .join(" ")
+    : "";
+
+  // --- Skills → category table ---
+  // Two accepted shapes:
+  //   deflist:  "Category:\n  ~ items"            (real resumes)
+  //   inline:   "**Category:** items"               (demo default)
+  const skills: ShokumukiSkill[] = [];
+  const skillSection = findSection(markdown, "Skills");
+  if (skillSection) {
+    let category = "";
+    let items = "";
+    const flush = () => {
+      if (category && items) skills.push({ category, items });
+      items = "";
+    };
+    for (const raw of skillSection.split("\n")) {
+      const line = cleanLabel(raw.trim());
+      if (!line) continue;
+      const defCat = line.match(/^([A-Za-z][\w /&+.-]*):\s*$/);
+      const boldCat = line.match(/^\*?\*?([A-Za-z][\w /&+.-]*?)\*?\*?:\s*(.+)$/);
+      if (defCat) {
+        flush();
+        category = defCat[1].trim();
+        continue;
+      }
+      if (boldCat && (!category || items)) {
+        flush();
+        category = boldCat[1].trim();
+        items = boldCat[2].trim();
+        continue;
+      }
+      const item = line.match(/^~\s+(.+)$/);
+      if (item && category) {
+        items = items ? `${items}, ${item[1].trim()}` : item[1].trim();
+        continue;
+      }
+      // continuation line under a bare category
+      if (category && !items) items = line;
+    }
+    flush();
+  }
+
+  // --- Experience → 職歴 blocks, newest first ---
+  const expSection = findSection(markdown, "Experience");
+  const work: ShokumukiWork[] = [];
+  if (expSection) {
+    for (const part of splitExperience(expSection)) {
+      const dateVal = part.values.find(
+        (v) => isDateLine(v) || /present|now|current/i.test(v)
+      );
+      const org = part.values.find(
+        (v) => !isDateLine(v) && !isLocationLine(v) && !/present|now|current/i.test(v)
+      );
+      if (!org && !dateVal) continue;
+      work.push({
+        period: dateVal ?? "",
+        org: org ?? "",
+        title: part.label,
+        bullets: part.bullets
+      });
+    }
+    // Newest start date first; undated blocks keep encounter order.
+    work.sort((a, b) => {
+      const ka = extractDateRange(a.period).start;
+      const kb = extractDateRange(b.period).start;
+      const na = ka ? Number(ka.year) * 100 + Number(ka.month || 0) : 0;
+      const nb = kb ? Number(kb.year) * 100 + Number(kb.month || 0) : 0;
+      return nb - na;
+    });
+  }
+
+  return { name, summary, skills, work };
 }

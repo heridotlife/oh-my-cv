@@ -16,101 +16,160 @@
           {{ $t("rirekisho.close") }}
         </UiButton>
       </div>
-      <div class="rirekisho-sheet">
-        <h2 class="rirekisho-sheet-title">{{ $t("rirekisho.sheet_title") }}</h2>
 
-        <!-- Personal block -->
-        <table class="rk-personal">
-          <tbody>
-            <tr>
-              <th scope="row">{{ $t("rirekisho.furigana") }}</th>
-              <td colspan="3">{{ sheet.personal.furigana }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ $t("rirekisho.name") }}</th>
-              <td>{{ sheet.personal.name }}</td>
-              <th scope="row">{{ $t("rirekisho.dob") }}</th>
-              <td>{{ dobText }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ $t("rirekisho.address") }}</th>
-              <td colspan="3">{{ sheet.personal.address }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ $t("rirekisho.phone") }}</th>
-              <td>{{ sheet.personal.phone }}</td>
-              <th scope="row">{{ $t("rirekisho.email") }}</th>
-              <td>{{ sheet.personal.email }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ $t("rirekisho.photo") }}</th>
-              <td class="rk-photo" colspan="3" rowspan="4" />
-            </tr>
-            <tr>
-              <th class="rk-blank" />
-            </tr>
-            <tr>
-              <th class="rk-blank" />
-            </tr>
-            <tr>
-              <th class="rk-blank" />
-            </tr>
-          </tbody>
-        </table>
+      <div class="rirekisho-pages">
+        <!-- ===== Page 1: 履歴書 ===== -->
+        <div class="rirekisho-sheet rk-page">
+          <h2 class="rirekisho-sheet-title">{{ $t("rirekisho.sheet_title") }}</h2>
 
-        <!-- 学歴・職歴 -->
-        <table class="rk-history">
-          <colgroup>
-            <col class="rk-col-year" />
-            <col class="rk-col-month" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="rk-ym" colspan="2">{{ $t("rirekisho.year_month") }}</th>
-              <th>{{ $t("rirekisho.history") }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(row, i) in sheet.history" :key="i">
-              <td class="rk-year">{{ row.date?.year }}</td>
-              <td class="rk-month">{{ row.date?.month }}</td>
-              <td :class="{ 'rk-above': row.kind === 'terminator' }">{{ row.text }}</td>
-            </tr>
-          </tbody>
-        </table>
+          <!-- Personal block -->
+          <table class="rk-personal">
+            <tbody>
+              <tr>
+                <th scope="row">{{ $t("rirekisho.furigana") }}</th>
+                <td colspan="3">{{ sheet.personal.furigana }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ $t("rirekisho.name") }}</th>
+                <td>{{ sheet.personal.name }}</td>
+                <th scope="row">{{ $t("rirekisho.dob") }}</th>
+                <td>{{ dobText }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ $t("rirekisho.address") }}</th>
+                <td colspan="3">{{ sheet.personal.address }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ $t("rirekisho.phone") }}</th>
+                <td>{{ sheet.personal.phone }}</td>
+                <th scope="row">{{ $t("rirekisho.email") }}</th>
+                <td>{{ sheet.personal.email }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ $t("rirekisho.photo") }}</th>
+                <td class="rk-photo" colspan="3" rowspan="4" />
+              </tr>
+              <tr>
+                <th class="rk-blank" />
+              </tr>
+              <tr>
+                <th class="rk-blank" />
+              </tr>
+              <tr>
+                <th class="rk-blank" />
+              </tr>
+            </tbody>
+          </table>
 
-        <!-- 免許・資格 -->
-        <table class="rk-licenses">
-          <colgroup>
-            <col class="rk-col-year" />
-            <col class="rk-col-month" />
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="rk-ym" colspan="2">{{ $t("rirekisho.year_month") }}</th>
-              <th>{{ $t("rirekisho.licenses") }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-if="sheet.licenses.length === 0">
-              <td class="rk-year" />
-              <td class="rk-month" />
-              <td />
-            </tr>
-            <tr v-for="(row, i) in sheet.licenses" :key="i">
-              <td class="rk-year">{{ row.date?.year }}</td>
-              <td class="rk-month">{{ row.date?.month }}</td>
-              <td>{{ row.text }}</td>
-            </tr>
-          </tbody>
-        </table>
+          <!-- 学歴・職歴 -->
+          <table class="rk-history">
+            <colgroup>
+              <col class="rk-col-year" />
+              <col class="rk-col-month" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="rk-ym" colspan="2">{{ $t("rirekisho.year_month") }}</th>
+                <th>{{ $t("rirekisho.history") }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(row, i) in sheet.history" :key="i">
+                <td class="rk-year">{{ row.date?.year }}</td>
+                <td class="rk-month">{{ row.date?.month }}</td>
+                <td :class="{ 'rk-above': row.kind === 'terminator' }">{{ row.text }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 免許・資格 -->
+          <table class="rk-licenses">
+            <colgroup>
+              <col class="rk-col-year" />
+              <col class="rk-col-month" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="rk-ym" colspan="2">{{ $t("rirekisho.year_month") }}</th>
+                <th>{{ $t("rirekisho.licenses") }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-if="sheet.licenses.length === 0">
+                <td class="rk-year" />
+                <td class="rk-month" />
+                <td />
+              </tr>
+              <tr v-for="(row, i) in sheet.licenses" :key="i">
+                <td class="rk-year">{{ row.date?.year }}</td>
+                <td class="rk-month">{{ row.date?.month }}</td>
+                <td>{{ row.text }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ===== Page 2: 職務経歴書 ===== -->
+        <div class="rirekisho-sheet rk-page sk-page">
+          <h2 class="rirekisho-sheet-title">職務経歴書</h2>
+
+          <table class="sk-head">
+            <tbody>
+              <tr>
+                <th scope="row">氏名</th>
+                <td>{{ sk.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="sk-note">
+            ※
+            提出から3ヶ月を経過した職務経歴書は、3ヶ月ごとに更新のうえ再提出してください。
+          </p>
+
+          <h3 class="sk-h">職務経歴（時系列）</h3>
+          <table class="sk-jobs">
+            <thead>
+              <tr>
+                <th class="sk-period">期間</th>
+                <th class="sk-cat">区分</th>
+                <th>職務内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(job, i) in sk.work" :key="i">
+                <td class="sk-period">{{ job.period }}</td>
+                <td class="sk-cat">会社員</td>
+                <td class="sk-desc">
+                  <div class="sk-job-title">{{ job.title }} — {{ job.org }}</div>
+                  <ul v-if="job.bullets.length" class="sk-bullets">
+                    <li v-for="(b, j) in job.bullets" :key="j">{{ b }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="sk-h">テクニカルスキル</h3>
+          <table class="sk-skills">
+            <tbody>
+              <tr v-for="(s, i) in sk.skills" :key="i">
+                <th scope="row">{{ s.category }}</th>
+                <td>{{ s.items }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="sk-h">自己PR</h3>
+          <p class="sk-summary">{{ sk.summary }}</p>
+        </div>
       </div>
     </div>
   </Teleport>
 </template>
 
 <script lang="ts" setup>
-import { buildRirekisho } from "~/utils/rirekisho";
+import { buildRirekisho, buildShokumukeirekisho } from "~/utils/rirekisho";
 
 const props = defineProps<{
   open: boolean;
@@ -122,6 +181,7 @@ void props;
 
 const { data } = useDataStore();
 const sheet = computed(() => buildRirekisho(data.markdown));
+const sk = computed(() => buildShokumukeirekisho(data.markdown));
 
 // Start loading the CJK font as soon as the sheet opens so both the
 // on-screen preview and print have glyphs.
@@ -223,6 +283,11 @@ const print = async () => {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
+.rirekisho-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .rirekisho-sheet {
   width: 210mm;
   min-height: 297mm;
@@ -246,7 +311,10 @@ const print = async () => {
 }
 .rk-personal,
 .rk-history,
-.rk-licenses {
+.rk-licenses,
+.sk-head,
+.sk-jobs,
+.sk-skills {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -254,7 +322,10 @@ const print = async () => {
 }
 .rk-personal th,
 .rk-history th,
-.rk-licenses th {
+.rk-licenses th,
+.sk-head th,
+.sk-jobs th,
+.sk-skills th {
   border: 0.75pt solid black;
   padding: 1.5mm 2mm;
   font-weight: 600;
@@ -263,7 +334,10 @@ const print = async () => {
 }
 .rk-personal td,
 .rk-history td,
-.rk-licenses td {
+.rk-licenses td,
+.sk-head td,
+.sk-jobs td,
+.sk-skills td {
   border: 0.75pt solid black;
   padding: 1.5mm 2mm;
   text-align: left;
@@ -315,6 +389,53 @@ const print = async () => {
   text-align: right;
   padding-right: 6mm;
 }
+
+/* ===== 職務経歴書 (page 2) ===== */
+.sk-head th {
+  width: 22mm;
+}
+.sk-note {
+  font-size: 8pt;
+  margin: 0 0 4mm;
+  color: #374151;
+}
+.sk-h {
+  font-size: 12pt;
+  font-weight: 700;
+  margin: 4mm 0 2mm;
+}
+.sk-period {
+  width: 38mm;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.sk-cat {
+  width: 16mm;
+  text-align: center;
+}
+.sk-desc {
+  height: auto;
+}
+.sk-job-title {
+  font-weight: 700;
+}
+.sk-bullets {
+  margin: 1mm 0 0;
+  padding-left: 5mm;
+}
+.sk-bullets li {
+  margin: 0;
+}
+.sk-skills th {
+  width: 40mm;
+}
+.sk-summary {
+  border: 0.75pt solid black;
+  padding: 3mm;
+  min-height: 30mm;
+  margin: 0;
+  white-space: pre-line;
+}
 </style>
 
 <style>
@@ -332,28 +453,46 @@ const print = async () => {
   html.rirekisho-active .rirekisho-toolbar {
     display: none !important;
   }
+  html.rirekisho-active .rirekisho-pages {
+    display: block;
+  }
   html.rirekisho-active .rirekisho-sheet {
     width: 100%;
     min-height: auto;
     box-shadow: none;
     padding: 0;
   }
-  /* Page-break hygiene: each JIS table stays intact; rows never split. */
+  /* Page 2 (職務経歴書) always starts on a fresh sheet of paper. */
+  html.rirekisho-active .sk-page {
+    page-break-before: always;
+    break-before: page;
+  }
+  /* Page-break hygiene: compact tables stay intact; long tables (jobs,
+     skills) break BETWEEN rows only — real 職務経歴書 spans multiple pages. */
   html.rirekisho-active .rk-personal,
   html.rirekisho-active .rk-history,
-  html.rirekisho-active .rk-licenses {
+  html.rirekisho-active .rk-licenses,
+  html.rirekisho-active .sk-head {
     break-inside: avoid;
   }
+  /* Headings never orphan at a page bottom — move with their table. */
+  html.rirekisho-active .sk-h {
+    break-after: avoid;
+  }
   html.rirekisho-active .rk-history tr,
-  html.rirekisho-active .rk-licenses tr {
+  html.rirekisho-active .rk-licenses tr,
+  html.rirekisho-active .sk-jobs tr,
+  html.rirekisho-active .sk-skills tr {
     break-inside: avoid;
   }
   html.rirekisho-active .rk-history thead,
-  html.rirekisho-active .rk-licenses thead {
+  html.rirekisho-active .rk-licenses thead,
+  html.rirekisho-active .sk-jobs thead {
     display: table-row-group;
   }
   html.rirekisho-active .rk-history tbody tr,
-  html.rirekisho-active .rk-licenses tbody tr {
+  html.rirekisho-active .rk-licenses tbody tr,
+  html.rirekisho-active .sk-jobs tbody tr {
     break-after: auto;
   }
 }
