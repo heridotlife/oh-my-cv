@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.518",
-    "@nuxt/devtools": "^3.4.1",
+    "@iconify/json": "^2.2.521",
+    "@nuxt/devtools": "^3.4.2",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
     "@ohmycv/case-police": "workspace:*",
@@ -26,7 +26,7 @@
     "@pinia/nuxt": "^1.0.2",
     "@heridotlife/utils": "workspace:*",
     "@types/markdown-it-link-attributes": "^3.0.5",
-    "@unocss/nuxt": "^66.8.0",
+    "@unocss/nuxt": "^66.8.1",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
