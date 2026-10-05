@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.518",
-    "@nuxt/devtools": "^3.4.1",
+    "@iconify/json": "^2.2.537",
+    "@nuxt/devtools": "^3.4.2",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
     "@ohmycv/case-police": "workspace:*",
