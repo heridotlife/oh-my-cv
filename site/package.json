@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.518",
-    "@nuxt/devtools": "^3.4.1",
+    "@iconify/json": "^2.2.540",
+    "@nuxt/devtools": "^3.4.2",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
     "@ohmycv/case-police": "workspace:*",
@@ -36,7 +36,7 @@
     "@zag-js/vue": "^1.43.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "eslint-plugin-vuejs-accessibility": "^2.6.0",
+    "eslint-plugin-vuejs-accessibility": "^2.6.2",
     "katex": "^0.18.4",
     "localforage": "^1.10.0",
     "@lucide/vue": "^1.32.0",
