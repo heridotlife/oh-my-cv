@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.518",
-    "@nuxt/devtools": "^3.4.1",
+    "@iconify/json": "^2.2.543",
+    "@nuxt/devtools": "^3.4.3",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
     "@ohmycv/case-police": "workspace:*",
@@ -23,7 +23,7 @@
     "@ohmycv/vue-shortcuts": "workspace:*",
     "@ohmycv/vue-smart-pages": "workspace:*",
     "@ohmycv/vue-zoom": "workspace:*",
-    "@pinia/nuxt": "^1.0.2",
+    "@pinia/nuxt": "^1.0.3",
     "@heridotlife/utils": "workspace:*",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@unocss/nuxt": "^66.8.0",
@@ -36,7 +36,7 @@
     "@zag-js/vue": "^1.43.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "eslint-plugin-vuejs-accessibility": "^2.6.0",
+    "eslint-plugin-vuejs-accessibility": "^2.6.2",
     "katex": "^0.18.4",
     "localforage": "^1.10.0",
     "@lucide/vue": "^1.32.0",
