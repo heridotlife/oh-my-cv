@@ -52,6 +52,7 @@ toolbar:
         title: Prudence!
         content: Lorsque vous imprimer sous Windows, selectionnez bien "Enregistrer vers PDF" dans les réglages de la fenêtre d'impression, <b>ne pas choisir</b> "Microsoft Print to PDF".
     export_md: Exportation Markdown
+    export_rirekisho: Exporter en Rirekisho (履歴書)
   correct_case:
     title: Corriger la casse
     example:
@@ -89,3 +90,19 @@ notification:
   import:
     yes: Les données ont bien été importées!
     no: Format des données incorrect.
+
+rirekisho:
+  title: Aperçu du Rirekisho
+  print: Imprimer
+  close: Fermer
+  sheet_title: 履歴書
+  furigana: ふりがな
+  name: 氏名
+  dob: 生年月日
+  address: 現住所
+  phone: 電話
+  email: メール
+  photo: 写真
+  year_month: 年月
+  history: 学歴・職歴
+  licenses: 免許・資格

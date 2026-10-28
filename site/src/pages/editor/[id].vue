@@ -19,6 +19,7 @@
         </UiButton>
       </template>
     </SharedHeader>
+    <EditorRirekishoSheet v-model:open="isRirekishoOpen" />
 
     <div class="workspace flex pb-2">
       <SplitterGroup id="splitter-editor" direction="horizontal" class="px-3">
@@ -62,6 +63,7 @@ import { isInteger } from "@heridotlife/utils";
 
 const route = useRoute();
 const { data } = useDataStore();
+const isRirekishoOpen = useState<boolean>("rirekisho-open", () => false);
 
 // Fetch resume data
 onMounted(() => {

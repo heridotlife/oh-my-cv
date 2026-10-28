@@ -53,6 +53,7 @@ toolbar:
         title: 注意
         content: 在 Windows 上打印时，请在打印设置弹窗中选择“另存为 PDF”，而<b>不是</b>“Microsoft Print to PDF”。
     export_md: 导出为 Markdown
+    export_rirekisho: 导出为日本履历书 (履歴書)
   correct_case:
     title: 专有名词大小写修正
     example:
@@ -90,3 +91,19 @@ notification:
   import:
     yes: 已成功导入数据！
     no: 数据格式不正确
+
+rirekisho:
+  title: 履历书预览
+  print: 打印
+  close: 关闭
+  sheet_title: 履歴書
+  furigana: ふりがな
+  name: 氏名
+  dob: 生年月日
+  address: 現住所
+  phone: 電話
+  email: メール
+  photo: 写真
+  year_month: 年月
+  history: 学歴・職歴
+  licenses: 免許・資格

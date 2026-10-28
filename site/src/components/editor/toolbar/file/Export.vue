@@ -36,12 +36,23 @@
     <span i-ri:markdown-fill text-base />
     {{ $t("toolbar.file.export_md") }}
   </UiButton>
+
+  <UiButton
+    class="gap-x-1.5 w-full h-8 justify-start"
+    variant="ghost"
+    size="sm"
+    @click="exportRirekisho"
+  >
+    <span i-tabler:file-description text-base />
+    {{ $t("toolbar.file.export_rirekisho") }}
+  </UiButton>
 </template>
 
 <script lang="ts" setup>
 import { downloadFile } from "@heridotlife/utils";
 
 const { data } = useDataStore();
+const isRirekishoOpen = useState<boolean>("rirekisho-open", () => false);
 const saveName = computed(() => data.resumeName.trim().replace(/\s+/g, "_"));
 
 // Export as PDF
@@ -51,6 +62,11 @@ const exportPDF = () => {
   document.title = saveName.value;
   window.print();
   document.title = title;
+};
+
+// Export as Rirekisho (履歴書)
+const exportRirekisho = () => {
+  isRirekishoOpen.value = true;
 };
 
 // Export as Markdown
