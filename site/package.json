@@ -29,7 +29,7 @@
     "@unocss/nuxt": "^66.8.0",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.4.0",
-    "@vueuse/nuxt": "^14.4.0",
+    "@vueuse/nuxt": "^15.0.0",
     "@zag-js/color-picker": "^1.43.1",
     "@zag-js/combobox": "^1.43.1",
     "@zag-js/file-upload": "^1.43.1",
